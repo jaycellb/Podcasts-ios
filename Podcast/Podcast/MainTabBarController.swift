@@ -15,8 +15,12 @@ class MainTabBarController: UITabBarController {
         let favoritesController = ViewController()
         favoritesController.tabBarItem.title = "Favorites"
         
+        let searchNavController = UINavigationController(rootViewController: ViewController())
+        searchNavController.tabBarItem.title = "Search"
+        
         viewControllers = [
-            favoritesController
+            favoritesController,
+            searchNavController
         ]
     }
 }
