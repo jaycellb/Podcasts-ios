@@ -12,6 +12,11 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .green
+        let favoritesController = ViewController()
+        favoritesController.tabBarItem.title = "Favorites"
+        
+        viewControllers = [
+            favoritesController
+        ]
     }
 }
