@@ -21,10 +21,16 @@ class MainTabBarController: UITabBarController {
         let searchNavController = UINavigationController(rootViewController: ViewController())
         searchNavController.tabBarItem.title = "Search"
         searchNavController.tabBarItem.image = #imageLiteral(resourceName: "search")
+ 
+        let downloadsNavController = UINavigationController(rootViewController: ViewController())
+        downloadsNavController.tabBarItem.title = "Downloads"
+        downloadsNavController.tabBarItem.image = #imageLiteral(resourceName: "downloads")
+
         
         viewControllers = [
             favoritesController,
-            searchNavController
+            searchNavController,
+            downloadsNavController
         ]
     }
 }
