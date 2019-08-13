@@ -26,7 +26,6 @@ class MainTabBarController: UITabBarController {
         downloadsNavController.tabBarItem.title = "Downloads"
         downloadsNavController.tabBarItem.image = #imageLiteral(resourceName: "downloads")
 
-        
         viewControllers = [
             favoritesController,
             searchNavController,
