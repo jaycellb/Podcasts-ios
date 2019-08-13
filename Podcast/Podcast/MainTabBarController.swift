@@ -14,9 +14,9 @@ class MainTabBarController: UITabBarController {
         
         tabBar.tintColor = .purple
         
-        let favoritesController = ViewController()
-        favoritesController.tabBarItem.title = "Favorites"
-        favoritesController.tabBarItem.image = #imageLiteral(resourceName: "favorites")
+        let favoritesNavController = UINavigationController(rootViewController: ViewController())
+        favoritesNavController.tabBarItem.title = "Favorites"
+        favoritesNavController.tabBarItem.image = #imageLiteral(resourceName: "favorites")
         
         let searchNavController = UINavigationController(rootViewController: ViewController())
         searchNavController.tabBarItem.title = "Search"
@@ -27,7 +27,7 @@ class MainTabBarController: UITabBarController {
         downloadsNavController.tabBarItem.image = #imageLiteral(resourceName: "downloads")
 
         viewControllers = [
-            favoritesController,
+            favoritesNavController,
             searchNavController,
             downloadsNavController
         ]
