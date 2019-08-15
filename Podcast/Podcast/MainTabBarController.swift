@@ -29,7 +29,6 @@ class MainTabBarController: UITabBarController {
         ]
     }
     
-    
     //Jay:- Helper Functions
     
     fileprivate func generateNavigationController(for rootViewController: UIViewController, title: String, image: UIImage) -> UIViewController {
