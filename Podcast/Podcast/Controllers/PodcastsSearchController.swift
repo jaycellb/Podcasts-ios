@@ -9,7 +9,31 @@
 import UIKit
 
 class PodcastsSearchController: UITableViewController {
+    
+    let podcasts = [
+        Podcast(name: "Let's Build That App", artistName: "Brian Voong"),
+        Podcast(name: "Some Podcast", artistName: "Some Artist"),
+    ]
+    
+    let cellId = "cellId"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //1. register a cell for the tableview
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return podcasts.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        
+        let podcast = self.podcasts[indexPath.row]
+        cell.textLabel?.text = podcast.name
+        
+        return cell
     }
 }
