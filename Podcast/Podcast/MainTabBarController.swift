@@ -20,7 +20,7 @@ class MainTabBarController: UITabBarController {
     }
     
     //MARK:- Setup Functions
-    
+    //Calls PodcastsSearchController to the MainTabBarController
     func setupViewControllers() {
         viewControllers = [
             generateNavigationController(for: PodcastsSearchController(), title: "Search", image: #imageLiteral(resourceName: "search")),
