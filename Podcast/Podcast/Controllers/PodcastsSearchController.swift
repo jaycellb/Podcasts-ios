@@ -23,19 +23,31 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupSearchBar()
+        setupTableView()
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+    }
+    
+    //MARK:- Setup Work
+    
+    fileprivate func setupSearchBar() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
-        
-        //1. register a cell for the tableview
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
         //later implement Alamofire to search iTunes API
     }
+    
+    fileprivate func setupTableView() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+    }
+    
+    //MARK:- UITableView
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return podcasts.count
