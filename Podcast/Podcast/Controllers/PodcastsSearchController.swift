@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PodcastsSearchController: UITableViewController {
+class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     
     let podcasts = [
         Podcast(name: "Let's Build That App", artistName: "Brian Voong"),
@@ -17,11 +17,24 @@ class PodcastsSearchController: UITableViewController {
     
     let cellId = "cellId"
     
+    //implement a UISearchController
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+        
         //1. register a cell for the tableview
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        //later implement Alamofire to search iTunes API
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
