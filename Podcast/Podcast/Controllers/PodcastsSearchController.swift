@@ -43,7 +43,7 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
   //      print(searchText)
         //later implement Alamofire to search iTunes API
         
-        let url = "https://yahoo.com"
+        let url = "https://itunes.apple.com/search?term=jack+johnson"
         Alamofire.request(url).responseData { (dataResponse) in
             if let err = dataResponse.error {
                 print("Failed to contact yahoo.", err)
