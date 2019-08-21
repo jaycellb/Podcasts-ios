@@ -12,8 +12,8 @@ import Alamofire
 class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     
     let podcasts = [
-        Podcast(name: "Let's Build That App", artistName: "Brian Voong"),
-        Podcast(name: "Some Podcast", artistName: "Some Artist"),
+        Podcast(trackName: "Let's Build That App", artistName: "Brian Voong"),
+        Podcast(trackName: "Some Podcast", artistName: "Some Artist"),
     ]
     
     let cellId = "cellId"
@@ -52,13 +52,15 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
             
             guard let data = dataResponse.data else { return }
             let dummyString =  String(data: data, encoding: .utf8)
-            print(dummyString ?? "")
+//            print(dummyString ?? "")
             
             do {
                 
                 let searchResult = try JSONDecoder().decode(SearchResults.self  , from: data)
                 print("Result Count:", searchResult.resultCount)
-                
+                searchResult.results.forEach({ (podcast) in
+                    print(podcast.artistName, podcast.trackName)
+                })
             } catch let decodeErr {
                 print("Failed to decode:", decodeErr)
             }
@@ -67,6 +69,7 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     
     struct SearchResults: Decodable {
         let resultCount: Int
+        let results: [Podcast]
     }
     
     fileprivate func setupTableView() {
@@ -83,7 +86,7 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         let podcast = self.podcasts[indexPath.row]
-        cell.textLabel?.text = "\(podcast.name)\n\(podcast.artistName)"
+        cell.textLabel?.text = "\(podcast.trackName)\n\(podcast.artistName)"
         cell.textLabel?.numberOfLines = -1
         cell.imageView?.image = #imageLiteral(resourceName: "appicon")
         
