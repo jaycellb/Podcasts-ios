@@ -53,7 +53,20 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
             guard let data = dataResponse.data else { return }
             let dummyString =  String(data: data, encoding: .utf8)
             print(dummyString ?? "")
+            
+            do {
+                
+                let searchResult = try JSONDecoder().decode(SearchResults.self  , from: data)
+                print("Result Count:", searchResult.resultCount)
+                
+            } catch let decodeErr {
+                print("Failed to decode:", decodeErr)
+            }
         }
+    }
+    
+    struct SearchResults: Decodable {
+        let resultCount: Int
     }
     
     fileprivate func setupTableView() {
