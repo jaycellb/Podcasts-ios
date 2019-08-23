@@ -45,7 +45,7 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
         
 //        let url = "https://itunes.apple.com/search?term=\(searchText)"
         let url = "https://itunes.apple.com/search"
-        let parameters = ["term": searchText]
+        let parameters = ["term": searchText, "media": "podcast"]
         
         Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseData { (dataResponse) in
             if let err = dataResponse.error {
