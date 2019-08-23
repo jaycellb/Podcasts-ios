@@ -11,7 +11,7 @@ import Alamofire
 
 class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     
-    let podcasts = [
+    var podcasts = [
         Podcast(trackName: "Let's Build That App", artistName: "Brian Voong"),
         Podcast(trackName: "Some Podcast", artistName: "Some Artist"),
     ]
@@ -58,9 +58,13 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
                 
                 let searchResult = try JSONDecoder().decode(SearchResults.self  , from: data)
                 print("Result Count:", searchResult.resultCount)
-                searchResult.results.forEach({ (podcast) in
+                searchResult.results.forEach({  (podcast) in
                     print(podcast.artistName, podcast.trackName)
                 })
+                
+                self.podcasts = searchResult.results
+                self.tableView.reloadData()
+                
             } catch let decodeErr {
                 print("Failed to decode:", decodeErr)
             }
@@ -86,7 +90,7 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         let podcast = self.podcasts[indexPath.row]
-        cell.textLabel?.text = "\(podcast.trackName)\n\(podcast.artistName)"
+        cell.textLabel?.text = "\(podcast.trackName ?? "")\n\(podcast.artistName ?? "")"
         cell.textLabel?.numberOfLines = -1
         cell.imageView?.image = #imageLiteral(resourceName: "appicon")
         
