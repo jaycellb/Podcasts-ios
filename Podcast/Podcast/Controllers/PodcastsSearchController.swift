@@ -49,22 +49,11 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
                 print("Failed to contact yahoo.", err)
                 return
             }
-            
             guard let data = dataResponse.data else { return }
-            let dummyString =  String(data: data, encoding: .utf8)
-//            print(dummyString ?? "")
-            
             do {
-                
                 let searchResult = try JSONDecoder().decode(SearchResults.self  , from: data)
-                print("Result Count:", searchResult.resultCount)
-                searchResult.results.forEach({  (podcast) in
-                    print(podcast.artistName, podcast.trackName)
-                })
-                
                 self.podcasts = searchResult.results
                 self.tableView.reloadData()
-                
             } catch let decodeErr {
                 print("Failed to decode:", decodeErr)
             }
