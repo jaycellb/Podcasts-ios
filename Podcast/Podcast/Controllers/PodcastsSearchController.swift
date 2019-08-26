@@ -40,7 +40,12 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        APIService.shared.fetchPodcasts(searchText: searchText)
+        APIService.shared.fetchPodcasts(searchText: searchText) { (podcasts) in
+        
+        self.podcasts = podcasts
+        self.tableView.reloadData()
+            
+        }
        
     }
     
