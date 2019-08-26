@@ -29,6 +29,8 @@ class APIService {
             guard let data = dataResponse.data else { return }
             do {
                 let searchResult = try JSONDecoder().decode(SearchResults.self  , from: data)
+
+                print(searchResult.resultCount)
 //                self.podcasts = searchResult.results
 //                self.tableView.reloadData()
             } catch let decodeErr {
