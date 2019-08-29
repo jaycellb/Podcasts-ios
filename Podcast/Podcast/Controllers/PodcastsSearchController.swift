@@ -11,13 +11,10 @@ import Alamofire
 
 class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     
-    var podcasts = [
-        Podcast(trackName: "Let's Build That App", artistName: "Brian Voong"),
-        Podcast(trackName: "Some Podcast", artistName: "Some Artist"),
-    ]
+    var podcasts = [Podcast]()
     
     let cellId = "cellId"
-    
+     
     //implement a UISearchController
     let searchController = UISearchController(searchResultsController: nil)
     
