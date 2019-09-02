@@ -30,7 +30,14 @@ class EpisodesController: UITableViewController {
     
     override func viewDidLoad() {
         super .viewDidLoad()
+        setupTableView()
+    }
+    
+    //MARK:- Setup TableView
+    
+    fileprivate func setupTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.tableFooterView = UIView()
     }
     
     //MARK:- UITableView
