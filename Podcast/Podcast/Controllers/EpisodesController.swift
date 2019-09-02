@@ -18,6 +18,16 @@ class EpisodesController: UITableViewController {
     
     fileprivate let cellId = "cellId"
     
+    struct Episode {
+        let title: String
+    }
+    
+    var episodes = [
+        Episode(title: "First Episode"),
+        Episode(title: "Second Episode"),
+        Episode(title: "Third Episode")
+    ]
+    
     override func viewDidLoad() {
         super .viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
@@ -26,12 +36,13 @@ class EpisodesController: UITableViewController {
     //MARK:- UITableView
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return episodes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId , for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row)"
+        let episode = episodes[indexPath.row]
+        cell.textLabel?.text = episode.title
         return cell
     }
     
