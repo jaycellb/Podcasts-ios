@@ -41,7 +41,6 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
         self.tableView.reloadData()
             
         }
-       
     }
     
     fileprivate func setupTableView() {
@@ -51,6 +50,11 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     }
     
     //MARK:- UITableView
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let episodesController = EpisodesController()
+        navigationController?.pushViewController(episodesController, animated: true)
+    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
