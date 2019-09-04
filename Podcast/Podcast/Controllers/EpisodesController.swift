@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import FeedKit
 
 class EpisodesController: UITableViewController {
     
     var podcast: Podcast? {
         didSet {
             navigationItem.title = podcast?.trackName
+            fetchEpisodes()
         }
+    }
+    
+    fileprivate func fetchEpisodes() {
+        
+        print("Looking for episodes at feed URL:", podcast?.feedUrl ?? "")
+        
     }
     
     fileprivate let cellId = "cellId"
