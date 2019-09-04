@@ -26,6 +26,20 @@ class EpisodesController: UITableViewController {
         let parser = FeedParser(URL: url)
         parser?.parseAsync(result: { (result) in
             print("Successfully parse feed:", result.isSuccess)
+            
+            switch result {
+            case let .atom(feed):
+                break
+            case let .rss(feed):
+                feed.items?.forEach({ (feedItem) in
+                    print(feedItem.title ?? "")
+                })
+                break
+            case let .json(feed):
+                break
+            case let .failure(error):
+                break
+            }
         }) 
     }
     
