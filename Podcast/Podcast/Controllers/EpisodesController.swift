@@ -22,7 +22,10 @@ class EpisodesController: UITableViewController {
         print("Looking for episodes at feed URL:", podcast?.feedUrl ?? "")
         
         guard let feedUrl = podcast?.feedUrl else { return }
-        guard let url = URL(string: feedUrl) else { return }
+        
+        let secureFeedUrl = feedUrl.contains("https") ? feedUrl : feedUrl.replacingOccurrences(of: "http", with: "https")
+        
+        guard let url = URL(string: secureFeedUrl) else { return }
         let parser = FeedParser(URL: url)
         parser?.parseAsync(result: { (result) in
             print("Successfully parse feed:", result.isSuccess)
