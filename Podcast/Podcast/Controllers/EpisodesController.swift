@@ -19,9 +19,14 @@ class EpisodesController: UITableViewController {
     }
     
     fileprivate func fetchEpisodes() {
-        
         print("Looking for episodes at feed URL:", podcast?.feedUrl ?? "")
         
+        guard let feedUrl = podcast?.feedUrl else { return }
+        guard let url = URL(string: feedUrl) else { return }
+        let parser = FeedParser(URL: url)
+        parser?.parseAsync(result: { (result) in
+            print("Successfully parse feed:", result.isSuccess)
+        }) 
     }
     
     fileprivate let cellId = "cellId"
