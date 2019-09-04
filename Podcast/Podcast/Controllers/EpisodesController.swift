@@ -28,8 +28,6 @@ class EpisodesController: UITableViewController {
             print("Successfully parse feed:", result.isSuccess)
             
             switch result {
-            case let .atom(feed):
-                break
             case let .rss(feed):
                 var episodes = [Episode]() //blank Episode array
                 feed.items?.forEach({ (feedItem) in
@@ -41,10 +39,12 @@ class EpisodesController: UITableViewController {
                     self.tableView.reloadData()
                 }
                 break
-            case let .json(feed):
-                break
             case let .failure(error):
+                print("Failed to parse feed:", error)
                 break
+                
+            default:
+                print("Found a feed...")
             }
         }) 
     }
@@ -78,7 +78,7 @@ class EpisodesController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId , for: indexPath)
         let episode = episodes[indexPath.row]
