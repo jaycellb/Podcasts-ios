@@ -31,9 +31,15 @@ class EpisodesController: UITableViewController {
             case let .atom(feed):
                 break
             case let .rss(feed):
+                var episodes = [Episode]() //blank Episode array
                 feed.items?.forEach({ (feedItem) in
-                    print(feedItem.title ?? "")
+                    let episode = Episode(title: feedItem.title ?? "")
+                    episodes.append(episode)
                 })
+                self.episodes = episodes
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 break
             case let .json(feed):
                 break
