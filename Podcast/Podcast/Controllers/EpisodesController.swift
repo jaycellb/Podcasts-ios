@@ -14,6 +14,7 @@ class EpisodesController: UITableViewController {
     var podcast: Podcast? {
         didSet {
             navigationItem.title = podcast?.trackName
+            
             fetchEpisodes()
         }
     }
@@ -56,13 +57,18 @@ class EpisodesController: UITableViewController {
     
     struct Episode {
         let title: String
+        let pubDate: Date
+        let description: String
+        
+        init(feedItem: RSSFeedItem) {
+            self.title = feedItem.title ?? ""
+            self.pubDate = feedItem.pubDate ?? Date()
+            self.description = feedItem.description ?? "" 
+            
+        }
     }
     
-    var episodes = [
-        Episode(title: "First Episode"),
-        Episode(title: "Second Episode"),
-        Episode(title: "Third Episode")
-    ]
+    var episodes = [Episode]()
     
     override func viewDidLoad() {
         super .viewDidLoad()
@@ -88,7 +94,6 @@ class EpisodesController: UITableViewController {
         cell.textLabel?.text = episode.title
         return cell
     }
-    
     
     
 }
