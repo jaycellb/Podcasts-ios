@@ -78,7 +78,8 @@ class EpisodesController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId , for: indexPath)
         let episode = episodes[indexPath.row]
-        cell.textLabel?.text = episode.title
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.text = episode.title + "\n" + episode.pubDate.description
         return cell
     }
     
