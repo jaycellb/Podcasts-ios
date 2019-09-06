@@ -10,4 +10,8 @@ import UIKit
 
 class EpisodeCell: UITableViewCell {
 
+    @IBOutlet weak var episodeImageView: UIImageView!
+    @IBOutlet weak var pubDateLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
 }
