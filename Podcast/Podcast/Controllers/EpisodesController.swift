@@ -55,18 +55,6 @@ class EpisodesController: UITableViewController {
     
     fileprivate let cellId = "cellId"
     
-    struct Episode {
-        let title: String
-        let pubDate: Date
-        let description: String
-        
-        init(feedItem: RSSFeedItem) {
-            self.title = feedItem.title ?? ""
-            self.pubDate = feedItem.pubDate ?? Date()
-            self.description = feedItem.description ?? ""
-        }
-    }
-    
     var episodes = [Episode]()
     
     override func viewDidLoad() {
