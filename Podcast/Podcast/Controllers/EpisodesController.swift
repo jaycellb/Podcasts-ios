@@ -35,7 +35,7 @@ class EpisodesController: UITableViewController {
             case let .rss(feed):
                 var episodes = [Episode]() //blank Episode array
                 feed.items?.forEach({ (feedItem) in
-                    let episode = Episode(title: feedItem.title ?? "")
+                   let episode = Episode(feedItem: feedItem)
                     episodes.append(episode)
                 })
                 self.episodes = episodes
@@ -63,8 +63,7 @@ class EpisodesController: UITableViewController {
         init(feedItem: RSSFeedItem) {
             self.title = feedItem.title ?? ""
             self.pubDate = feedItem.pubDate ?? Date()
-            self.description = feedItem.description ?? "" 
-            
+            self.description = feedItem.description ?? ""
         }
     }
     
