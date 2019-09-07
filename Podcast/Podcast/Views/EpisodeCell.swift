@@ -16,13 +16,10 @@ class EpisodeCell: UITableViewCell {
         didSet {
             titleLabel.numberOfLines = 2
         }
-        
     }
-    
     @IBOutlet weak var descriptionLabel: UILabel! {
         didSet {
             descriptionLabel.numberOfLines = 2
         }
-        
     }
 }
