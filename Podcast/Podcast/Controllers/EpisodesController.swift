@@ -77,8 +77,11 @@ class EpisodesController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId , for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId , for: indexPath) as! EpisodeCell
         let episode = episodes[indexPath.row]
+        cell.pubDateLabel.text = episode.pubDate.description
+        cell.titleLabel.text = episode.title
+        cell.descriptionLabel.text = episode.description
 //        cell.textLabel?.numberOfLines = 0
 //        cell.textLabel?.text = episode.title + "\n" + episode.pubDate.description
         return cell
