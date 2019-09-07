@@ -9,6 +9,19 @@
 import UIKit
 
 class EpisodeCell: UITableViewCell {
+    
+    var episode: Episode! {
+        didSet {
+            titleLabel.text = episode.title
+            descriptionLabel.text = episode.description
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM dd, yyyy"
+            pubDateLabel.text = dateFormatter.string(from: episode.pubDate)
+            
+        }
+    }
+    
 
     @IBOutlet weak var episodeImageView: UIImageView!
     @IBOutlet weak var pubDateLabel: UILabel!
