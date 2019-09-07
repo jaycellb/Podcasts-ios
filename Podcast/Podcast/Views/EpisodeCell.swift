@@ -12,6 +12,17 @@ class EpisodeCell: UITableViewCell {
 
     @IBOutlet weak var episodeImageView: UIImageView!
     @IBOutlet weak var pubDateLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.numberOfLines = 2
+        }
+        
+    }
+    
+    @IBOutlet weak var descriptionLabel: UILabel! {
+        didSet {
+            descriptionLabel.numberOfLines = 2
+        }
+        
+    }
 }
