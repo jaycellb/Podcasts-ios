@@ -20,7 +20,7 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         setupSearchBar()
         setupTableView()
     }
