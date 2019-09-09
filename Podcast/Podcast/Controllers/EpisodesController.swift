@@ -31,19 +31,15 @@ class EpisodesController: UITableViewController {
         parser?.parseAsync(result: { (result) in
             print("Successfully parse feed:", result.isSuccess)
             
-            switch result {
-            case let .rss(feed):
-                self.episodes = feed.toEpisodes()
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-                break
-            case let .failure(error):
-                print("Failed to parse feed:", error)
-                break
-                
-            default:
-                print("Found a feed...")
+            if let err = result.error {
+                print("Failed to parse XML Feed:" , err)
+                return
+            }
+            
+            guard let feed = result.rssFeed else { return }
+            self.episodes = feed.toEpisodes()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }) 
     }
