@@ -33,9 +33,13 @@ class EpisodesController: UITableViewController {
             
             switch result {
             case let .rss(feed):
+                
+                let imageUrl = feed.iTunes?.iTunesImage?.attributes?.href
+                
                 var episodes = [Episode]() //blank Episode array
                 feed.items?.forEach({ (feedItem) in
-                   let episode = Episode(feedItem: feedItem)
+                    var episode = Episode(feedItem: feedItem)
+                    episode.imageUrl = imageUrl
                     episodes.append(episode)
                 })
                 self.episodes = episodes
