@@ -39,7 +39,11 @@ class EpisodesController: UITableViewController {
                 var episodes = [Episode]() //blank Episode array
                 feed.items?.forEach({ (feedItem) in
                     var episode = Episode(feedItem: feedItem)
-                    episode.imageUrl = imageUrl
+                    
+                    if episode.imageUrl == nil {
+                        episode.imageUrl = imageUrl
+                    }
+                    
                     episodes.append(episode)
                 })
                 self.episodes = episodes
