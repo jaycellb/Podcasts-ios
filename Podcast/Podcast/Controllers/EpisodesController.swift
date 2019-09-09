@@ -24,24 +24,12 @@ class EpisodesController: UITableViewController {
         
         guard let feedUrl = podcast?.feedUrl else { return }
         
-        let secureFeedUrl = feedUrl.contains("https") ? feedUrl : feedUrl.replacingOccurrences(of: "http", with: "https")
-        
-        guard let url = URL(string: secureFeedUrl) else { return }
-        let parser = FeedParser(URL: url)
-        parser?.parseAsync(result: { (result) in
-            print("Successfully parse feed:", result.isSuccess)
-            
-            if let err = result.error {
-                print("Failed to parse XML Feed:" , err)
-                return
-            }
-            
-            guard let feed = result.rssFeed else { return }
-            self.episodes = feed.toEpisodes()
+        APIService.shared.fetchEpisodes(feedUrl: feedUrl) { (episodes) in
+            self.episodes = episodes
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-        }) 
+        }
     }
     
     fileprivate let cellId = "cellId"
