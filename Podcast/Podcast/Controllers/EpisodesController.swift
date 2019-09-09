@@ -14,7 +14,6 @@ class EpisodesController: UITableViewController {
     var podcast: Podcast? {
         didSet {
             navigationItem.title = podcast?.trackName
-            
             fetchEpisodes()
         }
     }
