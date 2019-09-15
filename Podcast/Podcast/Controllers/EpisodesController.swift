@@ -50,6 +50,11 @@ class EpisodesController: UITableViewController {
     
     //MARK:- UITableView
     
+    override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let episode = self.episodes[indexPath.row]
+        print("Trying to play episode:", episode.title)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes.count
     }
