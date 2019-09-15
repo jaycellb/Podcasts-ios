@@ -55,6 +55,7 @@ class EpisodesController: UITableViewController {
         print("Trying to play episode:", episode.title)
         
         let window = UIApplication.shared.keyWindow
+        
         let redView = UIView()
         redView.backgroundColor = .red
         redView.frame = self.view.frame
