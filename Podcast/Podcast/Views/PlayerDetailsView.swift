@@ -6,4 +6,15 @@
 //  Copyright © 2019 Jaycell. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class PlayerDetailsView: UIView {
+   
+    @IBAction func handleDismiss(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var episodeImageView: UIImageView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    }
