@@ -53,6 +53,14 @@ class EpisodesController: UITableViewController {
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episode = self.episodes[indexPath.row]
         print("Trying to play episode:", episode.title)
+        
+        let window = UIApplication.shared.keyWindow
+        let redView = UIView()
+        redView.backgroundColor = .red
+        redView.frame = self.view.frame
+        window?.addSubview(redView)
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
