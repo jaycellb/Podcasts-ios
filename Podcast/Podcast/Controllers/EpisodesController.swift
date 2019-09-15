@@ -56,10 +56,10 @@ class EpisodesController: UITableViewController {
         
         let window = UIApplication.shared.keyWindow
         
-        let redView = UIView()
-        redView.backgroundColor = .red
-        redView.frame = self.view.frame
-        window?.addSubview(redView)
+        let playerDetailsView = Bundle.main.loadNibNamed("PlayerDetailsView", owner: self, options: nil)?.first as! UIView
+        
+        playerDetailsView.frame = self.view.frame
+        window?.addSubview(playerDetailsView)
         
         
     }
