@@ -11,6 +11,7 @@ import UIKit
 class PlayerDetailsView: UIView {
    
     @IBAction func handleDismiss(_ sender: Any) {
+        self.removeFromSuperview()
     }
     
     @IBOutlet weak var episodeImageView: UIImageView!
@@ -18,3 +19,4 @@ class PlayerDetailsView: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     
     }
+
