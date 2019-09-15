@@ -9,6 +9,15 @@
 import UIKit
 
 class PlayerDetailsView: UIView {
+    
+    var episode: Episode! {
+        didSet {
+            titleLabel.text = episode.title
+            
+            guard let url = URL(string: episode.imageUrl ?? "") else { return }
+            episodeImageView.sd_setImage(with: url)
+        }
+    }
    
     @IBAction func handleDismiss(_ sender: Any) {
         self.removeFromSuperview()
