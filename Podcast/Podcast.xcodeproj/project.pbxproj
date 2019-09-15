@@ -23,6 +23,7 @@
 		FC8976EE2326A5AE001F90BA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8976ED2326A5AD001F90BA /* String.swift */; };
 		FC8976F02326AD55001F90BA /* RSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8976EF2326AD55001F90BA /* RSSFeed.swift */; };
 		FCAD1CF6232E9A9C009B7C79 /* PlayerDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCAD1CF5232E9A9C009B7C79 /* PlayerDetailsView.xib */; };
+		FCAD1CF8232EA03F009B7C79 /* PlayerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD1CF7232EA03F009B7C79 /* PlayerDetailsView.swift */; };
 		FCC1E2C32312FDAD008F4622 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC1E2C22312FDAD008F4622 /* APIService.swift */; };
 		FCC1E2C623158B24008F4622 /* PodcastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC1E2C523158B24008F4622 /* PodcastCell.xib */; };
 		FCC1E2C823159A15008F4622 /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC1E2C723159A15008F4622 /* PodcastCell.swift */; };
@@ -49,6 +50,7 @@
 		FC8976ED2326A5AD001F90BA /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		FC8976EF2326AD55001F90BA /* RSSFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeed.swift; sourceTree = "<group>"; };
 		FCAD1CF5232E9A9C009B7C79 /* PlayerDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailsView.xib; sourceTree = "<group>"; };
+		FCAD1CF7232EA03F009B7C79 /* PlayerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsView.swift; sourceTree = "<group>"; };
 		FCC1E2C22312FDAD008F4622 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FCC1E2C523158B24008F4622 /* PodcastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PodcastCell.xib; sourceTree = "<group>"; };
 		FCC1E2C723159A15008F4622 /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				FC46D62B2322CE5200173BBD /* EpisodeCell.swift */,
 				FC46D62C2322CE5200173BBD /* EpisodeCell.xib */,
 				FCAD1CF5232E9A9C009B7C79 /* PlayerDetailsView.xib */,
+				FCAD1CF7232EA03F009B7C79 /* PlayerDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC8976F02326AD55001F90BA /* RSSFeed.swift in Sources */,
+				FCAD1CF8232EA03F009B7C79 /* PlayerDetailsView.swift in Sources */,
 				FC6C851E230869CE00444565 /* PodcastsSearchController.swift in Sources */,
 				FC8976EE2326A5AE001F90BA /* String.swift in Sources */,
 				FC2D32AB2301B45F00C415D9 /* ViewController.swift in Sources */,
