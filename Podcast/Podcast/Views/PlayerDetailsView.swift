@@ -34,6 +34,7 @@ class PlayerDetailsView: UIView {
     
     let player: AVPlayer = {
         let avPlayer = AVPlayer()
+        avPlayer.automaticallyWaitsToMinimizeStalling = false
         return avPlayer
     }()
     
