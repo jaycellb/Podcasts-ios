@@ -15,11 +15,17 @@ class PlayerDetailsView: UIView {
             titleLabel.text = episode.title
             authorLabel.text = episode.author
             
+            playEpisode()
+            
             guard let url = URL(string: episode.imageUrl ?? "") else { return }
             episodeImageView.sd_setImage(with: url)
         }
     }
    
+    fileprivate func playEpisode() {
+        print("Trying to play episode at url:", episode.streamUrl)
+    }
+    
     @IBAction func handleDismiss(_ sender: Any) {
         self.removeFromSuperview()
     }
