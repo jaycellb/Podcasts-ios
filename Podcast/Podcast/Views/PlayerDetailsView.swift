@@ -55,6 +55,11 @@ class PlayerDetailsView: UIView {
     
     @objc func handlePlayPause() {
         print("Trying to play and pause")
+        if player.timeControlStatus == .paused {
+            player.play()
+        } else {
+            player.pause()
+        }
     }
     
     @IBOutlet weak var authorLabel: UILabel!
