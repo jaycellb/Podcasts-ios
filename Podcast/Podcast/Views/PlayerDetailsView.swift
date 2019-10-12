@@ -38,13 +38,25 @@ class PlayerDetailsView: UIView {
         return avPlayer
     }()
     
+    //MARK:- IB Actions and Outlets
+    
     @IBAction func handleDismiss(_ sender: Any) {
         self.removeFromSuperview()
     }
     
     @IBOutlet weak var episodeImageView: UIImageView!
     
-    @IBOutlet weak var playPauseButton: UIButton!
+    @IBOutlet weak var playPauseButton: UIButton! {
+        didSet{
+            playPauseButton.addTarget(self, action: #selector(handlePlayPause), for: .touchUpInside)
+        }
+    }
+    
+    
+    @objc func handlePlayPause() {
+        print("Trying to play and pause")
+    }
+    
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
