@@ -86,40 +86,43 @@
                             <rect key="frame" x="0.0" y="469" width="327" height="120"/>
                             <subviews>
                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ig-NV-Jj5">
-                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="47.5" height="120"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksn-cB-qJC">
-                                    <rect key="frame" x="41.5" y="0.0" width="54" height="120"/>
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksn-cB-qJC">
+                                    <rect key="frame" x="47.5" y="0.0" width="45.5" height="120"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="eR5-Kb-qdx"/>
                                     </constraints>
-                                    <state key="normal" title="Button" image="rewind15"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" image="rewind15"/>
                                 </button>
                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ae-fN-T1g">
-                                    <rect key="frame" x="95.5" y="0.0" width="42" height="120"/>
+                                    <rect key="frame" x="93" y="0.0" width="48" height="120"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fil-4u-hXr">
-                                    <rect key="frame" x="137.5" y="0.0" width="54" height="120"/>
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fil-4u-hXr">
+                                    <rect key="frame" x="141" y="0.0" width="54" height="120"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="54" id="bUB-3j-ka7"/>
                                     </constraints>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Button" image="play"/>
                                 </button>
                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dx3-8p-2Up">
-                                    <rect key="frame" x="191.5" y="0.0" width="41.5" height="120"/>
+                                    <rect key="frame" x="195" y="0.0" width="39" height="120"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aR7-16-AmG">
-                                    <rect key="frame" x="233" y="0.0" width="44" height="120"/>
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aR7-16-AmG">
+                                    <rect key="frame" x="234" y="0.0" width="44" height="120"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="44" id="BJ7-iu-V5o"/>
                                     </constraints>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Button" image="fastforward15"/>
                                 </button>
                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hcz-7d-vMN">
-                                    <rect key="frame" x="277" y="0.0" width="50" height="120"/>
+                                    <rect key="frame" x="278" y="0.0" width="49" height="120"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </subviews>
