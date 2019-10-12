@@ -48,6 +48,7 @@ class PlayerDetailsView: UIView {
     
     @IBOutlet weak var playPauseButton: UIButton! {
         didSet{
+            playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             playPauseButton.addTarget(self, action: #selector(handlePlayPause), for: .touchUpInside)
         }
     }
@@ -56,8 +57,10 @@ class PlayerDetailsView: UIView {
     @objc func handlePlayPause() {
         print("Trying to play and pause")
         if player.timeControlStatus == .paused {
+            playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             player.play()
         } else {
+            playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             player.pause()
         }
     }
