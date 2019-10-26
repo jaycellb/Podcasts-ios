@@ -45,6 +45,7 @@ class PlayerDetailsView: UIView {
         let times = [NSValue(time: time)]
         player.addBoundaryTimeObserver(forTimes: times, queue: .main) {
             print("Episode started playing")
+            self.enlargeEpisodeImageView()
         }
     }
     
