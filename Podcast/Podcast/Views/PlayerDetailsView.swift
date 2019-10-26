@@ -62,6 +62,13 @@ class PlayerDetailsView: UIView {
         })
     }
     
+    fileprivate func shrinkEpisodeImageView(){
+        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            let scale:CGFloat = 0.7
+            self.episodeImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        })
+    }
+    
     @IBOutlet weak var episodeImageView: UIImageView! {
         didSet {
             episodeImageView.layer.cornerRadius = 5
@@ -84,9 +91,11 @@ class PlayerDetailsView: UIView {
         if player.timeControlStatus == .paused {
             playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             player.play()
+            enlargeEpisodeImageView()
         } else {
             playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             player.pause()
+            shrinkEpisodeImageView()
         }
     }
     
