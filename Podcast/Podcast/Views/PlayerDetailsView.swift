@@ -44,7 +44,14 @@ class PlayerDetailsView: UIView {
         self.removeFromSuperview()
     }
     
-    @IBOutlet weak var episodeImageView: UIImageView!
+    @IBOutlet weak var episodeImageView: UIImageView! {
+        didSet {
+            episodeImageView.layer.cornerRadius = 5
+            episodeImageView.clipsToBounds = true
+            let scale:CGFloat = 0.7
+            episodeImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        }
+    }
     
     @IBOutlet weak var playPauseButton: UIButton! {
         didSet{
