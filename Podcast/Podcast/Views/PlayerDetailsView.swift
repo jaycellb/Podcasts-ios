@@ -41,7 +41,11 @@ class PlayerDetailsView: UIView {
     //MARK:- IB Actions and Outlets
     
     @IBAction func handleDismiss(_ sender: Any) {
-//        self.removeFromSuperview()
+        self.removeFromSuperview()
+        
+    }
+    
+    fileprivate func enlargeEpisodeImageView() {
         UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.episodeImageView.transform = .identity
         })
