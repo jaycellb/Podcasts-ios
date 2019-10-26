@@ -38,6 +38,16 @@ class PlayerDetailsView: UIView {
         return avPlayer
     }()
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let time = CMTimeMake(value: 1, timescale: 3)
+        let times = [NSValue(time: time)]
+        player.addBoundaryTimeObserver(forTimes: times, queue: .main) {
+            print("Episode started playing")
+        }
+    }
+    
     //MARK:- IB Actions and Outlets
     
     @IBAction func handleDismiss(_ sender: Any) {
