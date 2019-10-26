@@ -62,10 +62,11 @@ class PlayerDetailsView: UIView {
         })
     }
     
+    fileprivate let shrunkenTransform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+    
     fileprivate func shrinkEpisodeImageView(){
         UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            let scale:CGFloat = 0.7
-            self.episodeImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
+            self.episodeImageView.transform = self.shrunkenTransform
         })
     }
     
@@ -73,8 +74,7 @@ class PlayerDetailsView: UIView {
         didSet {
             episodeImageView.layer.cornerRadius = 5
             episodeImageView.clipsToBounds = true
-            let scale:CGFloat = 0.7
-            episodeImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
+            episodeImageView.transform = shrunkenTransform
         }
     }
     
