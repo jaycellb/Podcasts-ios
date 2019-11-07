@@ -163,6 +163,9 @@
             <viewLayoutGuide key="safeArea" id="Ub6-xl-YMG"/>
             <connections>
                 <outlet property="authorLabel" destination="uXi-z1-vf5" id="kkl-6f-lJw"/>
+                <outlet property="currentTimeLabel" destination="oKI-TP-8Kw" id="LRv-2M-EWe"/>
+                <outlet property="currentTimeSlider" destination="Eyb-9g-ID5" id="sgJ-5R-c2l"/>
+                <outlet property="durationLabel" destination="ztM-qn-u1u" id="TYF-nn-AiH"/>
                 <outlet property="episodeImageView" destination="nPG-NX-kTe" id="rkd-NO-KNg"/>
                 <outlet property="playPauseButton" destination="fil-4u-hXr" id="ijx-80-NlU"/>
                 <outlet property="titleLabel" destination="d4D-sU-euF" id="RKj-Ms-pwu"/>
