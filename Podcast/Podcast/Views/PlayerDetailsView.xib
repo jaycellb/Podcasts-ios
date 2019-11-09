@@ -38,7 +38,7 @@
                                 <constraint firstAttribute="width" secondItem="nPG-NX-kTe" secondAttribute="height" id="iNf-Gz-DI6"/>
                             </constraints>
                         </imageView>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Eyb-9g-ID5">
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Eyb-9g-ID5">
                             <rect key="frame" x="-2" y="371" width="331" height="37"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="fzn-ed-4al"/>
