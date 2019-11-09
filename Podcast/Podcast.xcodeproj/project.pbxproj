@@ -15,6 +15,7 @@
 		FC2D32B02301B46100C415D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC2D32AF2301B46100C415D9 /* Assets.xcassets */; };
 		FC2D32B32301B46100C415D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2D32B12301B46100C415D9 /* LaunchScreen.storyboard */; };
 		FC2D32BB2301BC1600C415D9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2D32BA2301BC1600C415D9 /* MainTabBarController.swift */; };
+		FC46593F23772021008D5C0F /* CMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46593E23772021008D5C0F /* CMTime.swift */; };
 		FC46D6262322CBB300173BBD /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46D6252322CBB300173BBD /* Episode.swift */; };
 		FC46D62D2322CE5200173BBD /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46D62B2322CE5200173BBD /* EpisodeCell.swift */; };
 		FC46D62E2322CE5200173BBD /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC46D62C2322CE5200173BBD /* EpisodeCell.xib */; };
@@ -42,6 +43,7 @@
 		FC2D32B22301B46100C415D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC2D32B42301B46100C415D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC2D32BA2301BC1600C415D9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		FC46593E23772021008D5C0F /* CMTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTime.swift; sourceTree = "<group>"; };
 		FC46D6252322CBB300173BBD /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		FC46D62B2322CE5200173BBD /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		FC46D62C2322CE5200173BBD /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				FC8976ED2326A5AD001F90BA /* String.swift */,
 				FC8976EF2326AD55001F90BA /* RSSFeed.swift */,
+				FC46593E23772021008D5C0F /* CMTime.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				FCAD1CF8232EA03F009B7C79 /* PlayerDetailsView.swift in Sources */,
 				FC6C851E230869CE00444565 /* PodcastsSearchController.swift in Sources */,
 				FC8976EE2326A5AE001F90BA /* String.swift in Sources */,
+				FC46593F23772021008D5C0F /* CMTime.swift in Sources */,
 				FC2D32AB2301B45F00C415D9 /* ViewController.swift in Sources */,
 				FC2D32A92301B45F00C415D9 /* AppDelegate.swift in Sources */,
 				FC0A2142231D694000ECCA3E /* EpisodesController.swift in Sources */,

@@ -41,17 +41,9 @@ class PlayerDetailsView: UIView {
     fileprivate func observePlayerCurrentTime() {
         let interval = CMTime(value: 1, timescale: 2)
         player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { (time) in
-            let totalSeconds = Int(CMTimeGetSeconds(time))
-            print("Total Seconds:", totalSeconds)
-            
-            let seconds = totalSeconds % 60
-            let minutes = totalSeconds / 60
-            
-            let timeFormatString = String(format: "%02d:%02d", minutes, seconds)
-            self.currentTimeLabel.text = timeFormatString
-            
-            
-            
+        self.currentTimeLabel.text = time.toDisplayString()
+        let durationTime = self.player.currentItem?.duration
+        self.durationLabel.text = durationTime?.toDisplayString()
         }
     }
     
