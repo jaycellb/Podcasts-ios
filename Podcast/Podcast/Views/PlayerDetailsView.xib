@@ -38,7 +38,7 @@
                                 <constraint firstAttribute="width" secondItem="nPG-NX-kTe" secondAttribute="height" id="iNf-Gz-DI6"/>
                             </constraints>
                         </imageView>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Eyb-9g-ID5">
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Eyb-9g-ID5">
                             <rect key="frame" x="-2" y="371" width="331" height="37"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="fzn-ed-4al"/>
@@ -47,16 +47,16 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="J9B-Ta-2ho">
                             <rect key="frame" x="0.0" y="407" width="327" height="22"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKI-TP-8Kw">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKI-TP-8Kw">
                                     <rect key="frame" x="0.0" y="0.0" width="163.5" height="22"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88:88:88" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-qn-u1u">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-qn-u1u">
                                     <rect key="frame" x="163.5" y="0.0" width="163.5" height="22"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -163,6 +163,9 @@
             <viewLayoutGuide key="safeArea" id="Ub6-xl-YMG"/>
             <connections>
                 <outlet property="authorLabel" destination="uXi-z1-vf5" id="kkl-6f-lJw"/>
+                <outlet property="currentTimeLabel" destination="oKI-TP-8Kw" id="LRv-2M-EWe"/>
+                <outlet property="currentTimeSlider" destination="Eyb-9g-ID5" id="sgJ-5R-c2l"/>
+                <outlet property="durationLabel" destination="ztM-qn-u1u" id="TYF-nn-AiH"/>
                 <outlet property="episodeImageView" destination="nPG-NX-kTe" id="rkd-NO-KNg"/>
                 <outlet property="playPauseButton" destination="fil-4u-hXr" id="ijx-80-NlU"/>
                 <outlet property="titleLabel" destination="d4D-sU-euF" id="RKj-Ms-pwu"/>
