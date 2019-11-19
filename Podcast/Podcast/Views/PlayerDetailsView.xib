@@ -145,7 +145,7 @@
                                         <constraint firstAttribute="width" constant="34" id="tWF-Ka-gbV"/>
                                     </constraints>
                                 </imageView>
-                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vUV-vA-7Yf">
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vUV-vA-7Yf">
                                     <rect key="frame" x="32" y="0.0" width="263" height="35"/>
                                     <connections>
                                         <action selector="handleVolumeChange:" destination="GhJ-X9-jQ4" eventType="valueChanged" id="dmu-ZO-781"/>
