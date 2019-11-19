@@ -82,7 +82,7 @@ class PlayerDetailsView: UIView {
         
         let seekTimeInSeconds = Float64(percentage) * durationInSeconds
         
-        let seekTime = CMTimeMakeWithSeconds(seekTimeInSeconds, preferredTimescale: Int32(NSEC_PER_SEC))
+        let seekTime = CMTimeMakeWithSeconds(seekTimeInSeconds, preferredTimescale: Int32(1))
         
         player.seek(to: seekTime)
     }
