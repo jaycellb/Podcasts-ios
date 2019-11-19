@@ -93,8 +93,8 @@ class PlayerDetailsView: UIView {
         player.seek(to: seekTime)
     }
     
-    
-    @IBAction func handleVolumeChange(_ sender: Any) {
+    @IBAction func handleVolumeChange(_ sender: UISlider) {
+        player.volume = sender.value
     }
     @IBOutlet weak var currentTimeSlider: UISlider!
     @IBOutlet weak var durationLabel: UILabel!
