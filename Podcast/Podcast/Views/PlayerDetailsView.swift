@@ -71,6 +71,15 @@ class PlayerDetailsView: UIView {
     
     //MARK:- IB Actions and Outlets
     
+    
+    @IBAction func handleCurrentTimeSliderChange(_ sender: Any) {
+    }
+    @IBAction func handleFastForward(_ sender: Any) {
+    }
+    @IBAction func handleRewind(_ sender: Any) {
+    }
+    @IBAction func handleVolumeChange(_ sender: Any) {
+    }
     @IBOutlet weak var currentTimeSlider: UISlider!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var currentTimeLabel: UILabel!
