@@ -81,13 +81,14 @@ class PlayerDetailsView: UIView {
         player.seek(to: seekTime)
     }
     @IBAction func handleFastForward(_ sender: Any) {
-        
         let fifteenSeconds = CMTimeMake(value: 15, timescale: 1)
         let seekTime = CMTimeAdd(player.currentTime(), fifteenSeconds)
         player.seek(to: seekTime)
-        
     }
     @IBAction func handleRewind(_ sender: Any) {
+        let fifteenSeconds = CMTimeMake(value: -15, timescale: 1)
+        let seekTime = CMTimeAdd(player.currentTime(), fifteenSeconds)
+        player.seek(to: seekTime)
     }
     @IBAction func handleVolumeChange(_ sender: Any) {
     }
