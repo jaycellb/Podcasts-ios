@@ -70,9 +70,21 @@ class PlayerDetailsView: UIView {
     }
     
     //MARK:- IB Actions and Outlets
-    
-    
+
     @IBAction func handleCurrentTimeSliderChange(_ sender: Any) {
+        print("Slider Value:", currentTimeSlider.value)
+        
+        let percentage = currentTimeSlider.value
+        
+        guard let duration = player.currentItem?.duration else { return }
+        
+        let durationInSeconds = CMTimeGetSeconds(duration)
+        
+        let seekTimeInSeconds = Float64(percentage) * durationInSeconds
+        
+        let seekTime = CMTimeMakeWithSeconds(seekTimeInSeconds, preferredTimescale: Int32(NSEC_PER_SEC))
+        
+        player.seek(to: seekTime)
     }
     @IBAction func handleFastForward(_ sender: Any) {
     }
@@ -85,7 +97,6 @@ class PlayerDetailsView: UIView {
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBAction func handleDismiss(_ sender: Any) {
         self.removeFromSuperview()
-        
     }
     
     fileprivate func enlargeEpisodeImageView() {
@@ -137,6 +148,5 @@ class PlayerDetailsView: UIView {
             titleLabel.numberOfLines = 2
         }
     }
-    
-    }
+}
 
