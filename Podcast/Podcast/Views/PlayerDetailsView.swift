@@ -40,12 +40,11 @@ class PlayerDetailsView: UIView {
     
     fileprivate func observePlayerCurrentTime() {
         let interval = CMTime(value: 1, timescale: 2)
-        player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { (time) in
-        self.currentTimeLabel.text = time.toDisplayString()
-        let durationTime = self.player.currentItem?.duration
-        self.durationLabel.text = durationTime?.toDisplayString()
-        self.updateCurrentTimeSlider()
-        
+        player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self](time) in
+        self?.currentTimeLabel.text = time.toDisplayString()
+        let durationTime = self?.player.currentItem?.duration
+        self?.durationLabel.text = durationTime?.toDisplayString()
+        self?.updateCurrentTimeSlider()
         }
     }
     
@@ -64,8 +63,9 @@ class PlayerDetailsView: UIView {
         let time = CMTimeMake(value: 1, timescale: 3)
         let times = [NSValue(time: time)]
         player.addBoundaryTimeObserver(forTimes: times, queue: .main) {
+            [weak self] in
             print("Episode started playing")
-            self.enlargeEpisodeImageView()
+            self? .enlargeEpisodeImageView()
         }
     }
     
