@@ -23,6 +23,7 @@ class PlayerDetailsView: UIView {
         }
     }
    
+    
     fileprivate func playEpisode() {
         print("Trying to play episode at url:", episode.streamUrl)
         
