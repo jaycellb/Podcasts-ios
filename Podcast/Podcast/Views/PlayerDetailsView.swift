@@ -23,7 +23,6 @@ class PlayerDetailsView: UIView {
         }
     }
    
-    
     fileprivate func playEpisode() {
         print("Trying to play episode at url:", episode.streamUrl)
         
@@ -68,6 +67,10 @@ class PlayerDetailsView: UIView {
             print("Episode started playing")
             self? .enlargeEpisodeImageView()
         }
+    }
+    
+    deinit {
+        print("PlayerDetailsView memory being reclaimed..")
     }
     
     //MARK:- IB Actions and Outlets
