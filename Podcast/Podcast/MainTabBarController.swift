@@ -17,10 +17,17 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = .purple
         
         setupViewControllers()
+        
+        setUpPlayerDetailsView()
+        
     }
     
     //MARK:- Setup Functions
     //Calls PodcastsSearchController to the MainTabBarController
+    
+    fileprivate func setUpPlayerDetailsView() {
+        print("Setting Up PlayerDetailsView")
+            }
     func setupViewControllers() {
         viewControllers = [
             generateNavigationController(for: PodcastsSearchController(), title: "Search", image: #imageLiteral(resourceName: "search")),
