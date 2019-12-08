@@ -27,7 +27,15 @@ class MainTabBarController: UITabBarController {
     
     fileprivate func setUpPlayerDetailsView() {
         print("Setting Up PlayerDetailsView")
-            }
+        
+        let playerDetailsView = PlayerDetailsView.initFromNib()
+        playerDetailsView.backgroundColor = .red
+        
+        playerDetailsView.frame = view.frame
+        
+        view.addSubview(playerDetailsView)
+        
+    }
     func setupViewControllers() {
         viewControllers = [
             generateNavigationController(for: PodcastsSearchController(), title: "Search", image: #imageLiteral(resourceName: "search")),
