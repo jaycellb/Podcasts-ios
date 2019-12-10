@@ -31,9 +31,18 @@ class MainTabBarController: UITabBarController {
         let playerDetailsView = PlayerDetailsView.initFromNib()
         playerDetailsView.backgroundColor = .red
         
-        playerDetailsView.frame = view.frame
-        
+//        playerDetailsView.frame = view.frame
+        //use auto layout
         view.addSubview(playerDetailsView)
+        
+        //enables auto layout
+        playerDetailsView.translatesAutoresizingMaskIntoConstraints = false
+        
+        //set anchors
+        playerDetailsView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        playerDetailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        playerDetailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        playerDetailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
     }
     func setupViewControllers() {
