@@ -23,8 +23,11 @@ class MainTabBarController: UITabBarController {
     }
     
     //MARK:- Setup Functions
-    //Calls PodcastsSearchController to the MainTabBarController
     
+    var maximizedTopAnchorConstraint: NSLayoutConstraint!
+    var minimizedTopAnchorConstraint: NSLayoutConstraint!
+    
+    //Calls PodcastsSearchController to the MainTabBar
     fileprivate func setUpPlayerDetailsView() {
         print("Setting Up PlayerDetailsView")
         
@@ -40,9 +43,12 @@ class MainTabBarController: UITabBarController {
         playerDetailsView.translatesAutoresizingMaskIntoConstraints = false
         
         //set anchors
-//        playerDetailsView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
-        playerDetailsView.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -64).isActive = true
+        maximizedTopAnchorConstraint = playerDetailsView.topAnchor.constraint(equalTo: view.topAnchor)
+        maximizedTopAnchorConstraint.isActive = true
+        
+        minimizedTopAnchorConstraint = playerDetailsView.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -64)
+//        minimizedTopAnchorConstraint.isActive = true
         
         playerDetailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         playerDetailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
