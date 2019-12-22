@@ -20,6 +20,22 @@ class MainTabBarController: UITabBarController {
         
         setUpPlayerDetailsView()
         
+        perform(#selector(minimizePlayerDetails ), with: nil, afterDelay: 1)
+        
+    }
+    
+    @objc func minimizePlayerDetails() {
+        print(111)
+        
+        maximizedTopAnchorConstraint.isActive = false
+        
+        minimizedTopAnchorConstraint.isActive = true
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.layoutIfNeeded()
+            
+        })
     }
     
     //MARK:- Setup Functions
