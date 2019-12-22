@@ -20,7 +20,7 @@ class MainTabBarController: UITabBarController {
         
         setUpPlayerDetailsView()
         
-        perform(#selector(minimizePlayerDetails ), with: nil, afterDelay: 1)
+        perform(#selector(maximizePlayerDetails ), with: nil, afterDelay: 1)
         
     }
     
@@ -30,6 +30,20 @@ class MainTabBarController: UITabBarController {
         maximizedTopAnchorConstraint.isActive = false
         
         minimizedTopAnchorConstraint.isActive = true
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.layoutIfNeeded()
+            
+        })
+    }
+    
+    @objc func maximizePlayerDetails() {
+        print(222)
+        
+        maximizedTopAnchorConstraint.isActive = true
+        maximizedTopAnchorConstraint.constant = 0
+        minimizedTopAnchorConstraint.isActive = false
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             
@@ -60,8 +74,10 @@ class MainTabBarController: UITabBarController {
         
         //set anchors
         
-        maximizedTopAnchorConstraint = playerDetailsView.topAnchor.constraint(equalTo: view.topAnchor)
+        maximizedTopAnchorConstraint =         playerDetailsView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height)
+
         maximizedTopAnchorConstraint.isActive = true
+        
         
         minimizedTopAnchorConstraint = playerDetailsView.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -64)
 //        minimizedTopAnchorConstraint.isActive = true
