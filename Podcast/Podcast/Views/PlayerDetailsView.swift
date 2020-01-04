@@ -108,7 +108,9 @@ class PlayerDetailsView: UIView {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBAction func handleDismiss(_ sender: Any) {
-        self.removeFromSuperview()
+//        self.removeFromSuperview()
+        let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
+        mainTabBarController?.minimizePlayerDetails()
     }
     
     fileprivate func enlargeEpisodeImageView() {
