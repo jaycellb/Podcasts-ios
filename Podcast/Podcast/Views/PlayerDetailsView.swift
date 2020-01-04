@@ -58,6 +58,8 @@ class PlayerDetailsView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximize)))
+        
         observePlayerCurrentTime()
         
         let time = CMTimeMake(value: 1, timescale: 3)
@@ -67,6 +69,10 @@ class PlayerDetailsView: UIView {
             print("Episode started playing")
             self? .enlargeEpisodeImageView()
         }
+    }
+    
+    @objc func handleTapMaximize() {
+        print("TAPPING TO MAXIMIZE")
     }
     
     static func initFromNib() -> PlayerDetailsView {
@@ -108,7 +114,6 @@ class PlayerDetailsView: UIView {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBAction func handleDismiss(_ sender: Any) {
-//        self.removeFromSuperview()
         let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
         mainTabBarController?.minimizePlayerDetails()
     }
