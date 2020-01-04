@@ -53,6 +53,7 @@ class MainTabBarController: UITabBarController {
     }
     
     //MARK:- Setup Functions
+    let playerDetailsView = PlayerDetailsView.initFromNib()
     
     var maximizedTopAnchorConstraint: NSLayoutConstraint!
     var minimizedTopAnchorConstraint: NSLayoutConstraint!
@@ -61,7 +62,7 @@ class MainTabBarController: UITabBarController {
     fileprivate func setUpPlayerDetailsView() {
         print("Setting Up PlayerDetailsView")
         
-        let playerDetailsView = PlayerDetailsView.initFromNib()
+        
         playerDetailsView.backgroundColor = .red
         
 //        playerDetailsView.frame = view.frame
