@@ -73,7 +73,7 @@ class MainTabBarController: UITabBarController {
         
         //set anchors
         
-        maximizedTopAnchorConstraint =         playerDetailsView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height)
+        maximizedTopAnchorConstraint = playerDetailsView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height)
 
         maximizedTopAnchorConstraint.isActive = true
         
