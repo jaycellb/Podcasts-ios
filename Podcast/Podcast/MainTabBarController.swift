@@ -60,7 +60,6 @@ class MainTabBarController: UITabBarController {
     fileprivate func setUpPlayerDetailsView() {
         print("Setting Up PlayerDetailsView")
         
-        
         playerDetailsView.backgroundColor = .red
         
 //        playerDetailsView.frame = view.frame
@@ -76,7 +75,6 @@ class MainTabBarController: UITabBarController {
         maximizedTopAnchorConstraint = playerDetailsView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height)
 
         maximizedTopAnchorConstraint.isActive = true
-        
         
         minimizedTopAnchorConstraint = playerDetailsView.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -64)
 //        minimizedTopAnchorConstraint.isActive = true
