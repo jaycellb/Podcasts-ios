@@ -20,8 +20,6 @@ class MainTabBarController: UITabBarController {
         
         setUpPlayerDetailsView()
         
-        perform(#selector(maximizePlayerDetails ), with: nil, afterDelay: 1)
-        
     }
     
     @objc func minimizePlayerDetails() {
