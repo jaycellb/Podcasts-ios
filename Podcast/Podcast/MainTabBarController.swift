@@ -34,12 +34,13 @@ class MainTabBarController: UITabBarController {
         })
     }
     
-    @objc func maximizePlayerDetails() {
+    func maximizePlayerDetails(episode: Episode?) {
         print(222)
-        
         maximizedTopAnchorConstraint.isActive = true
         maximizedTopAnchorConstraint.constant = 0
         minimizedTopAnchorConstraint.isActive = false
+        
+        playerDetailsView.episode = episode
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             
