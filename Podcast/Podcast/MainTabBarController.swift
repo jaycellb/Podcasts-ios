@@ -31,6 +31,7 @@ class MainTabBarController: UITabBarController {
             
             self.view.layoutIfNeeded()
             
+            self.tabBar.transform = .identity
         })
     }
     
