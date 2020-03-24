@@ -48,6 +48,8 @@ class MainTabBarController: UITabBarController {
             
             self.view.layoutIfNeeded()
             
+            self.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
+            
         })
     }
     
