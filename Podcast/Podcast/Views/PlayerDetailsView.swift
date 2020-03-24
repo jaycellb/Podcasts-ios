@@ -73,7 +73,7 @@ class PlayerDetailsView: UIView {
     
     @objc func handleTapMaximize() {
         let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
-        mainTabBarController?.maximizePlayerDetails()
+        mainTabBarController?.maximizePlayerDetails(episode: nil )
     }
     
     static func initFromNib() -> PlayerDetailsView {
