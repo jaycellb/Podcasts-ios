@@ -40,7 +40,9 @@ class MainTabBarController: UITabBarController {
         maximizedTopAnchorConstraint.constant = 0
         minimizedTopAnchorConstraint.isActive = false
         
+        if episode != nil{
         playerDetailsView.episode = episode
+        }
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             
@@ -58,8 +60,6 @@ class MainTabBarController: UITabBarController {
     //Calls PodcastsSearchController to the MainTabBar
     fileprivate func setUpPlayerDetailsView() {
         print("Setting Up PlayerDetailsView")
-        
-        playerDetailsView.backgroundColor = .red
         
 //        playerDetailsView.frame = view.frame
         //use auto layout
