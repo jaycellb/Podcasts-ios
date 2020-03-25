@@ -13,6 +13,7 @@ class PlayerDetailsView: UIView {
     
     var episode: Episode! {
         didSet {
+            miniTitleLabel.text = episode.title
             titleLabel.text = episode.title
             authorLabel.text = episode.author
             
@@ -20,6 +21,7 @@ class PlayerDetailsView: UIView {
             
             guard let url = URL(string: episode.imageUrl ?? "") else { return }
             episodeImageView.sd_setImage(with: url)
+            miniEpisodeImageView.sd_setImage(with: url)
         }
     }
    
@@ -86,8 +88,8 @@ class PlayerDetailsView: UIView {
     
     //MARK:- IB Actions and Outlets
     
-    @IBOutlet weak var miniEpisodeImageView: UIImageView!
     @IBOutlet weak var miniTitleLabel: UILabel!
+    @IBOutlet weak var miniEpisodeImageView: UIImageView!
     @IBOutlet weak var miniPlayPauseButton: UIButton!
     @IBOutlet weak var miniFastForwardButton: UIButton!
     

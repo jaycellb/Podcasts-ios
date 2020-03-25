@@ -227,9 +227,11 @@
                 <outlet property="durationLabel" destination="ztM-qn-u1u" id="TYF-nn-AiH"/>
                 <outlet property="episodeImageView" destination="nPG-NX-kTe" id="rkd-NO-KNg"/>
                 <outlet property="maximizedStackView" destination="cV2-Y5-SHM" id="VHc-i0-7Dv"/>
+                <outlet property="miniEpisodeImageView" destination="j7W-QN-zrq" id="bKC-Xf-OEs"/>
                 <outlet property="miniFastForwardButton" destination="q5y-5c-wDu" id="7vc-QD-VDB"/>
                 <outlet property="miniPlayPauseButton" destination="JQN-Oi-CDI" id="tGu-as-KqH"/>
                 <outlet property="miniPlayerView" destination="wTD-jB-scb" id="ugp-0C-MBx"/>
+                <outlet property="miniTitleLabel" destination="6hc-6M-v7Z" id="b7p-ae-xwB"/>
                 <outlet property="playPauseButton" destination="fil-4u-hXr" id="ijx-80-NlU"/>
                 <outlet property="titleLabel" destination="d4D-sU-euF" id="RKj-Ms-pwu"/>
             </connections>
