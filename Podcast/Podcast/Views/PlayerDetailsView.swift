@@ -85,7 +85,10 @@ class PlayerDetailsView: UIView {
     }
     
     //MARK:- IB Actions and Outlets
-
+    
+    @IBOutlet weak var maximizedStackView: UIStackView!
+    @IBOutlet weak var miniPlayerView: UIView!
+    
     @IBAction func handleCurrentTimeSliderChange(_ sender: Any) {
         let percentage = currentTimeSlider.value
         guard let duration = player.currentItem?.duration else { return }

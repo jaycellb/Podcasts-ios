@@ -19,7 +19,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTD-jB-scb">
                     <rect key="frame" x="0.0" y="20" width="414" height="64"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KB3-qp-fOS">
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KB3-qp-fOS">
                             <rect key="frame" x="8" y="8" width="398" height="48"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appicon" translatesAutoresizingMaskIntoConstraints="NO" id="j7W-QN-zrq">
@@ -29,13 +29,13 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hc-6M-v7Z">
-                                    <rect key="frame" x="48" y="0.0" width="254" height="48"/>
+                                    <rect key="frame" x="56" y="0.0" width="230" height="48"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQN-Oi-CDI">
-                                    <rect key="frame" x="302" y="0.0" width="48" height="48"/>
+                                    <rect key="frame" x="294" y="0.0" width="48" height="48"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="48" id="ER1-gf-Qoc"/>
                                     </constraints>
@@ -226,6 +226,8 @@
                 <outlet property="currentTimeSlider" destination="Eyb-9g-ID5" id="sgJ-5R-c2l"/>
                 <outlet property="durationLabel" destination="ztM-qn-u1u" id="TYF-nn-AiH"/>
                 <outlet property="episodeImageView" destination="nPG-NX-kTe" id="rkd-NO-KNg"/>
+                <outlet property="maximizedStackView" destination="cV2-Y5-SHM" id="VHc-i0-7Dv"/>
+                <outlet property="miniPlayerView" destination="wTD-jB-scb" id="ugp-0C-MBx"/>
                 <outlet property="playPauseButton" destination="fil-4u-hXr" id="ijx-80-NlU"/>
                 <outlet property="titleLabel" destination="d4D-sU-euF" id="RKj-Ms-pwu"/>
             </connections>
