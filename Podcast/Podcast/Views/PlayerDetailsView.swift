@@ -86,6 +86,11 @@ class PlayerDetailsView: UIView {
     
     //MARK:- IB Actions and Outlets
     
+    @IBOutlet weak var miniEpisodeImageView: UIImageView!
+    @IBOutlet weak var miniTitleLabel: UILabel!
+    @IBOutlet weak var miniPlayPauseButton: UIButton!
+    @IBOutlet weak var miniFastForwardButton: UIButton!
+    
     @IBOutlet weak var maximizedStackView: UIStackView!
     @IBOutlet weak var miniPlayerView: UIView!
     
