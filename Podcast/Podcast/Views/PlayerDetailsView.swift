@@ -13,6 +13,7 @@ class PlayerDetailsView: UIView {
     
     var episode: Episode! {
         didSet {
+            miniTitleLabel.text = episode.title
             titleLabel.text = episode.title
             authorLabel.text = episode.author
             
@@ -20,6 +21,7 @@ class PlayerDetailsView: UIView {
             
             guard let url = URL(string: episode.imageUrl ?? "") else { return }
             episodeImageView.sd_setImage(with: url)
+            miniEpisodeImageView.sd_setImage(with: url)
         }
     }
    
@@ -85,7 +87,23 @@ class PlayerDetailsView: UIView {
     }
     
     //MARK:- IB Actions and Outlets
+    
+    @IBOutlet weak var miniTitleLabel: UILabel!
+    @IBOutlet weak var miniEpisodeImageView: UIImageView!
+    @IBOutlet weak var miniPlayPauseButton: UIButton! {
+        didSet {
+            miniPlayPauseButton.addTarget(self, action: #selector(handlePlayPause), for: .touchUpInside)
+        }
+    }
+    @IBOutlet weak var miniFastForwardButton: UIButton! {
+        didSet {
+            miniFastForwardButton.addTarget(self, action: #selector(handleFastForward(_:)), for: .touchUpInside)
+        }
+    }
 
+    @IBOutlet weak var maximizedStackView: UIStackView!
+    @IBOutlet weak var miniPlayerView: UIView!
+    
     @IBAction func handleCurrentTimeSliderChange(_ sender: Any) {
         let percentage = currentTimeSlider.value
         guard let duration = player.currentItem?.duration else { return }
@@ -153,10 +171,12 @@ class PlayerDetailsView: UIView {
         print("Trying to play and pause")
         if player.timeControlStatus == .paused {
             playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             player.play()
             enlargeEpisodeImageView()
         } else {
             playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+            miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             player.pause()
             shrinkEpisodeImageView()
         }
