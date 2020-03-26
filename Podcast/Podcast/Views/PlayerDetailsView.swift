@@ -90,9 +90,17 @@ class PlayerDetailsView: UIView {
     
     @IBOutlet weak var miniTitleLabel: UILabel!
     @IBOutlet weak var miniEpisodeImageView: UIImageView!
-    @IBOutlet weak var miniPlayPauseButton: UIButton!
-    @IBOutlet weak var miniFastForwardButton: UIButton!
-    
+    @IBOutlet weak var miniPlayPauseButton: UIButton! {
+        didSet {
+            miniPlayPauseButton.addTarget(self, action: #selector(handlePlayPause), for: .touchUpInside)
+        }
+    }
+    @IBOutlet weak var miniFastForwardButton: UIButton! {
+        didSet {
+            miniFastForwardButton.addTarget(self, action: #selector(handleFastForward(_:)), for: .touchUpInside)
+        }
+    }
+
     @IBOutlet weak var maximizedStackView: UIStackView!
     @IBOutlet weak var miniPlayerView: UIView!
     
@@ -163,10 +171,12 @@ class PlayerDetailsView: UIView {
         print("Trying to play and pause")
         if player.timeControlStatus == .paused {
             playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             player.play()
             enlargeEpisodeImageView()
         } else {
             playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+            miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             player.pause()
             shrinkEpisodeImageView()
         }
