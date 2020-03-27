@@ -62,6 +62,9 @@ class PlayerDetailsView: UIView {
         
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximize)))
         
+        addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
+        
+        
         observePlayerCurrentTime()
         
         let time = CMTimeMake(value: 1, timescale: 3)
@@ -71,6 +74,11 @@ class PlayerDetailsView: UIView {
             print("Episode started playing")
             self? .enlargeEpisodeImageView()
         }
+    }
+    
+    @objc func handlePan(gesture: UIPanGestureRecognizer) {
+        print("Panning")
+        
     }
     
     @objc func handleTapMaximize() {
