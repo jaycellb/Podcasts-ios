@@ -93,11 +93,13 @@ class PlayerDetailsView: UIView {
     @IBOutlet weak var miniPlayPauseButton: UIButton! {
         didSet {
             miniPlayPauseButton.addTarget(self, action: #selector(handlePlayPause), for: .touchUpInside)
+            miniPlayPauseButton.imageEdgeInsets = .init(top: 8, left: 8, bottom: 8, right: 8)
         }
     }
     @IBOutlet weak var miniFastForwardButton: UIButton! {
         didSet {
             miniFastForwardButton.addTarget(self, action: #selector(handleFastForward(_:)), for: .touchUpInside)
+            miniFastForwardButton.imageEdgeInsets = .init(top: 8, left: 8, bottom: 8, right: 8)
         }
     }
 
