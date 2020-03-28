@@ -77,7 +77,17 @@ class PlayerDetailsView: UIView {
     }
     
     @objc func handlePan(gesture: UIPanGestureRecognizer) {
-        print("Panning")
+//        print("Panning")
+        if gesture.state == .began {
+            print("Began")
+        } else if gesture.state == .changed {
+            print ("Changed")
+            self.transform = CGAffineTransform(translationX: 0, y: -200)
+        } else if gesture.state == .ended {
+            print("Ended")
+        }
+        
+        
         
     }
     
