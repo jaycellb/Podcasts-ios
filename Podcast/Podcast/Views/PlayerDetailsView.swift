@@ -85,13 +85,16 @@ class PlayerDetailsView: UIView {
             let translation = gesture.translation(in: self.superview)
             self.transform = CGAffineTransform(translationX: 0, y: translation.y)
             
+            self.maximizedStackView.alpha = -translation.y / 200
             self.miniPlayerView.alpha = 1 + translation.y / 200
             
         } else if gesture.state == .ended {
             print("Ended")
             UIView.animate(withDuration: 0.5 , delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                
                 self.transform = .identity
                 self.miniPlayerView.alpha = 1
+                self.maximizedStackView.alpha = 0
             })
         }
     }
