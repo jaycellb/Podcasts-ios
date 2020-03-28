@@ -82,13 +82,14 @@ class PlayerDetailsView: UIView {
             print("Began")
         } else if gesture.state == .changed {
             print ("Changed")
-            self.transform = CGAffineTransform(translationX: 0, y: -200)
+            let translation = gesture.translation(in: self.superview)
+            self.transform = CGAffineTransform(translationX: 0, y: translation.y)
         } else if gesture.state == .ended {
             print("Ended")
+            UIView.animate(withDuration: 0.5 , delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.transform = .identity
+            })
         }
-        
-        
-        
     }
     
     @objc func handleTapMaximize() {
