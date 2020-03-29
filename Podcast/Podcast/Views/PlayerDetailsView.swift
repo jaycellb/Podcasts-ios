@@ -98,7 +98,7 @@ class PlayerDetailsView: UIView {
                 
                 self.transform = .identity
                 
-                if translation.y < -200 {
+                if translation.y < -200 || velocity.y < -500 {
                     let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
                     mainTabBarController?.maximizePlayerDetails(episode: nil)
                 } else {
