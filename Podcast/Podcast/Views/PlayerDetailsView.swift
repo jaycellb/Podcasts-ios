@@ -89,8 +89,10 @@ class PlayerDetailsView: UIView {
             self.miniPlayerView.alpha = 1 + translation.y / 200
             
         } else if gesture.state == .ended {
-            print("Ended")
             let translation = gesture.translation(in: self.superview)
+            let velocity = gesture.velocity(in: self.superview)
+            
+            print("Ended", velocity.y)
             
             UIView.animate(withDuration: 0.5 , delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 
