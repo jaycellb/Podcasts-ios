@@ -90,11 +90,19 @@ class PlayerDetailsView: UIView {
             
         } else if gesture.state == .ended {
             print("Ended")
+            let translation = gesture.translation(in: self.superview)
+            
             UIView.animate(withDuration: 0.5 , delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 
                 self.transform = .identity
-                self.miniPlayerView.alpha = 1
-                self.maximizedStackView.alpha = 0
+                
+                if translation.y < -200 {
+                    let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
+                    mainTabBarController?.maximizePlayerDetails(episode: nil)
+                } else {
+                    self.miniPlayerView.alpha = 1
+                    self.maximizedStackView.alpha = 0
+                }
             })
         }
     }
