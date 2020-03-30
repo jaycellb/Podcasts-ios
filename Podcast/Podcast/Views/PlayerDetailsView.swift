@@ -57,13 +57,14 @@ class PlayerDetailsView: UIView {
         self.currentTimeSlider.value = Float(percentage)
     }
     
+    var panGesture: UIPanGestureRecognizer!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximize)))
-        
-        addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
-        
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        addGestureRecognizer(panGesture)
         
         observePlayerCurrentTime()
         
@@ -101,6 +102,7 @@ class PlayerDetailsView: UIView {
             if translation.y < -200 || velocity.y < -500 {
                 let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
                 mainTabBarController?.maximizePlayerDetails(episode: nil)
+                gesture.isEnabled = false
             } else {
                 self.miniPlayerView.alpha = 1
                 self.maximizedStackView.alpha = 0
@@ -172,6 +174,7 @@ class PlayerDetailsView: UIView {
     @IBAction func handleDismiss(_ sender: Any) {
         let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
         mainTabBarController?.minimizePlayerDetails()
+        panGesture.isEnabled = true
     }
     
     fileprivate func enlargeEpisodeImageView() {
