@@ -113,6 +113,7 @@ class PlayerDetailsView: UIView {
     @objc func handleTapMaximize() {
         let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
         mainTabBarController?.maximizePlayerDetails(episode: nil )
+        panGesture.isEnabled = false
     }
     
     static func initFromNib() -> PlayerDetailsView {
