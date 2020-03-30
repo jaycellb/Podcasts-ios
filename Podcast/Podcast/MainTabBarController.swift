@@ -24,8 +24,8 @@ class MainTabBarController: UITabBarController {
     
     @objc func minimizePlayerDetails() {
         maximizedTopAnchorConstraint.isActive = false
-        minimizedTopAnchorConstraint.isActive = true
         bottomAnchorConstraint.constant = view.frame.height
+        minimizedTopAnchorConstraint.isActive = true
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             
@@ -39,10 +39,10 @@ class MainTabBarController: UITabBarController {
     }
     
     func maximizePlayerDetails(episode: Episode?) {
-        print(222)
+        minimizedTopAnchorConstraint.isActive = false
         maximizedTopAnchorConstraint.isActive = true
         maximizedTopAnchorConstraint.constant = 0
-        minimizedTopAnchorConstraint.isActive = false
+        
         
         bottomAnchorConstraint.constant = 0
         
