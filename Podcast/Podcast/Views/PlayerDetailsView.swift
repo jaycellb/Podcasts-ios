@@ -62,7 +62,7 @@ class PlayerDetailsView: UIView {
     fileprivate func setupGestures() {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximize)))
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-        addGestureRecognizer(panGesture)
+        miniPlayerView.addGestureRecognizer(panGesture)
     }
     
     override func awakeFromNib() {
