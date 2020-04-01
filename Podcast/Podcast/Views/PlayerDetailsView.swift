@@ -72,6 +72,10 @@ class PlayerDetailsView: UIView {
         if gesture.state == .changed {
             let translation = gesture.translation(in: superview)
             maximizedStackView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        } else if gesture.state == .ended {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.maximizedStackView.transform = .identity
+            })
         }
     }
     
