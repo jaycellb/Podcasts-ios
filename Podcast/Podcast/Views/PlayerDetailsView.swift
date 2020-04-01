@@ -69,6 +69,10 @@ class PlayerDetailsView: UIView {
     
     @objc func handleDismissalPan(gesture: UIPanGestureRecognizer) {
         print("MaximizedStackView Dismissial")
+        if gesture.state == .changed {
+            let translation = gesture.translation(in: superview)
+            maximizedStackView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        }
     }
     
     override func awakeFromNib() {
