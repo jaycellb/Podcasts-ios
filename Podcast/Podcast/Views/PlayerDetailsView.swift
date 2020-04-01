@@ -59,12 +59,16 @@ class PlayerDetailsView: UIView {
     
     var panGesture: UIPanGestureRecognizer!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    fileprivate func setupGestures() {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximize)))
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         addGestureRecognizer(panGesture)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setupGestures()
         
         observePlayerCurrentTime()
         
