@@ -63,6 +63,12 @@ class PlayerDetailsView: UIView {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximize)))
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         miniPlayerView.addGestureRecognizer(panGesture)
+        
+        maximizedStackView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleDismissalPan)))
+    }
+    
+    @objc func handleDismissalPan(gesture: UIPanGestureRecognizer) {
+        print("MaximizedStackView Dismissial")
     }
     
     override func awakeFromNib() {
