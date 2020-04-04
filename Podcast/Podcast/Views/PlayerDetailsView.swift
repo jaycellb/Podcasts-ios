@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import MediaPlayer
 
 class PlayerDetailsView: UIView {
     
@@ -95,8 +96,28 @@ class PlayerDetailsView: UIView {
         
     }
     
+    fileprivate func setupRemoteCOntrol() {
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        let commandCenter = MPRemoteCommandCenter.shared()
+        
+        commandCenter.playCommand.isEnabled = true
+        commandCenter.playCommand.addTarget { (_) -> MPRemoteCommandHandlerStatus in
+            print("Should play podcast...")
+            
+        return .success
+        }
+        
+        commandCenter.pauseCommand.isEnabled = true
+        commandCenter.pauseCommand.addTarget { (_) -> MPRemoteCommandHandlerStatus in
+            print("Should pause podcast...")
+            return .success
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        setupRemoteCOntrol()
         
         setupAudioSession()
         
