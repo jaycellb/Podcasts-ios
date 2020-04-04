@@ -36,7 +36,7 @@
 		48B0BAB10C72DAC2A9E10DF2 /* Pods_Podcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Podcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6EE334FA2ECF319C14CD4F2 /* Pods-Podcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podcast.debug.xcconfig"; path = "Target Support Files/Pods-Podcast/Pods-Podcast.debug.xcconfig"; sourceTree = "<group>"; };
 		FC0A2141231D694000ECCA3E /* EpisodesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesController.swift; sourceTree = "<group>"; };
-		FC2D32A52301B45F00C415D9 /* Podcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC2D32A52301B45F00C415D9 /*  .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = " .app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2D32A82301B45F00C415D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC2D32AA2301B45F00C415D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FC2D32AD2301B45F00C415D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		FC2D32A62301B45F00C415D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FC2D32A52301B45F00C415D9 /* Podcast.app */,
+				FC2D32A52301B45F00C415D9 /*  .app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,9 +179,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FC2D32A42301B45F00C415D9 /* Podcast */ = {
+		FC2D32A42301B45F00C415D9 /*   */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC2D32B72301B46100C415D9 /* Build configuration list for PBXNativeTarget "Podcast" */;
+			buildConfigurationList = FC2D32B72301B46100C415D9 /* Build configuration list for PBXNativeTarget " " */;
 			buildPhases = (
 				EF2762C9EF0FD3C36195D8F6 /* [CP] Check Pods Manifest.lock */,
 				FC2D32A12301B45F00C415D9 /* Sources */,
@@ -193,9 +193,9 @@
 			);
 			dependencies = (
 			);
-			name = Podcast;
+			name = " ";
 			productName = Podcast;
-			productReference = FC2D32A52301B45F00C415D9 /* Podcast.app */;
+			productReference = FC2D32A52301B45F00C415D9 /*  .app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -210,6 +210,11 @@
 				TargetAttributes = {
 					FC2D32A42301B45F00C415D9 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -226,7 +231,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FC2D32A42301B45F00C415D9 /* Podcast */,
+				FC2D32A42301B45F00C415D9 /*   */,
 			);
 		};
 /* End PBXProject section */
@@ -500,7 +505,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FC2D32B72301B46100C415D9 /* Build configuration list for PBXNativeTarget "Podcast" */ = {
+		FC2D32B72301B46100C415D9 /* Build configuration list for PBXNativeTarget " " */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC2D32B82301B46100C415D9 /* Debug */,
