@@ -102,14 +102,17 @@ class PlayerDetailsView: UIView {
         
         commandCenter.playCommand.isEnabled = true
         commandCenter.playCommand.addTarget { (_) -> MPRemoteCommandHandlerStatus in
-            print("Should play podcast...")
+            
+            self.player.play()
             
         return .success
         }
         
         commandCenter.pauseCommand.isEnabled = true
         commandCenter.pauseCommand.addTarget { (_) -> MPRemoteCommandHandlerStatus in
-            print("Should pause podcast...")
+            
+            self.player.pause()
+            
             return .success
         }
     }
