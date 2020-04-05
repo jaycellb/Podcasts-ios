@@ -106,7 +106,7 @@ class PlayerDetailsView: UIView {
             self.playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             self.miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             
-        return .success
+            return .success
         }
         
         commandCenter.pauseCommand.isEnabled = true
