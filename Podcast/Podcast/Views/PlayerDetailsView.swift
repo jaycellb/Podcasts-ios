@@ -99,21 +99,25 @@ class PlayerDetailsView: UIView {
     fileprivate func setupRemoteCOntrol() {
         UIApplication.shared.beginReceivingRemoteControlEvents()
         let commandCenter = MPRemoteCommandCenter.shared()
-        
         commandCenter.playCommand.isEnabled = true
         commandCenter.playCommand.addTarget { (_) -> MPRemoteCommandHandlerStatus in
+        self.player.play()
             
-            self.player.play()
+        self.playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+        self.miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             
         return .success
         }
         
         commandCenter.pauseCommand.isEnabled = true
         commandCenter.pauseCommand.addTarget { (_) -> MPRemoteCommandHandlerStatus in
+        self.player.pause()
             
-            self.player.pause()
+        self.playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+        self.miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             
-            return .success
+            
+        return .success
         }
     }
     
