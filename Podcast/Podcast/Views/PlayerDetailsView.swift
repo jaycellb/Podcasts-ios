@@ -24,7 +24,24 @@ class PlayerDetailsView: UIView {
             
             guard let url = URL(string: episode.imageUrl ?? "") else { return }
             episodeImageView.sd_setImage(with: url)
-            miniEpisodeImageView.sd_setImage(with: url)
+//            miniEpisodeImageView.sd_setImage(with: url)
+            
+            miniEpisodeImageView.sd_setImage(with: url) { (image, _, _, _) in
+                
+                guard let image = image else{ return }
+                
+                // lockscreen image setup code
+                var nowPlayngInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo
+                
+                // some modifications here
+                let artwork = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { (_) -> UIImage in
+                     return image
+                })
+                
+                nowPlayngInfo?[MPMediaItemPropertyArtwork] = artwork
+
+                MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayngInfo
+            }
         }
     }
     
