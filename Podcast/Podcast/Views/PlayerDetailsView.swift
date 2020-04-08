@@ -90,6 +90,9 @@ class PlayerDetailsView: UIView {
         guard let currentItem = player.currentItem else { return }
         let durationInSeconds = CMTimeGetSeconds(currentItem.duration)
         
+        let elapsedTIme = CMTimeGetSeconds(player.currentTime())
+        
+        nowPlayingInfo? [MPNowPlayingInfoPropertyElapsedPlaybackTime] = elapsedTIme
         nowPlayingInfo?[MPMediaItemPropertyPlaybackDuration] = durationInSeconds
         
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
