@@ -70,14 +70,29 @@ class PlayerDetailsView: UIView {
         return avPlayer
     }()
     
-    fileprivate func observePlayerCurrentTime() {
+    fileprivate func  observePlayerCurrentTime() {
         let interval = CMTime(value: 1, timescale: 2)
         player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self](time) in
         self?.currentTimeLabel.text = time.toDisplayString()
         let durationTime = self?.player.currentItem?.duration
         self?.durationLabel.text = durationTime?.toDisplayString()
+            
+        self? .setupLockscreenCurrentTime()
+            
         self?.updateCurrentTimeSlider()
         }
+    }
+    
+    fileprivate func setupLockscreenCurrentTime() {
+        var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo
+        
+        // modify here
+        guard let currentItem = player.currentItem else { return }
+        let durationInSeconds = CMTimeGetSeconds(currentItem.duration)
+        
+        nowPlayingInfo?[MPMediaItemPropertyPlaybackDuration] = durationInSeconds
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
     
     fileprivate func updateCurrentTimeSlider() {
@@ -165,11 +180,8 @@ class PlayerDetailsView: UIView {
         super.awakeFromNib()
         
         setupRemoteCOntrol()
-        
         setupAudioSession()
-        
         setupGestures()
-        
         observePlayerCurrentTime()
         
         let time = CMTimeMake(value: 1, timescale: 3)
