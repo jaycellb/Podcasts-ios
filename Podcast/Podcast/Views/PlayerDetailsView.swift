@@ -74,26 +74,9 @@ class PlayerDetailsView: UIView {
         let durationTime = self?.player.currentItem?.duration
         self?.durationLabel.text = durationTime?.toDisplayString()
             
-//        self? .setupLockscreenCurrentTime()
-            
         self?.updateCurrentTimeSlider()
         }
     }
-    
-//    fileprivate func setupLockscreenCurrentTime() {
-//        var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo
-//
-//        // modify here
-//        guard let currentItem = player.currentItem else { return }
-//        let durationInSeconds = CMTimeGetSeconds(currentItem.duration)
-//
-//        let elapsedTIme = CMTimeGetSeconds(player.currentTime())
-//
-//        nowPlayingInfo? [MPNowPlayingInfoPropertyElapsedPlaybackTime] = elapsedTIme
-//        nowPlayingInfo?[MPMediaItemPropertyPlaybackDuration] = durationInSeconds
-//
-//        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
-//    }
     
     fileprivate func updateCurrentTimeSlider() {
         let currentTimeSeconds = CMTimeGetSeconds(player.currentTime())
@@ -176,6 +159,24 @@ class PlayerDetailsView: UIView {
         }
     }
     
+    fileprivate func observeBoundaryTime() {
+        let time = CMTimeMake(value: 1, timescale: 3)
+        let times = [NSValue(time: time)]
+        player.addBoundaryTimeObserver(forTimes: times, queue: .main) {
+            [weak self] in
+            print("Episode started playing")
+            self?.enlargeEpisodeImageView()
+            self?.setupLockscreenDuration()
+        }
+    }
+    
+    fileprivate func setupLockscreenDuration() {
+        guard let duration = player.currentItem?.duration else { return }
+        let durationSeconds = CMTimeGetSeconds(duration )
+        MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPMediaItemPropertyPlaybackDuration] = durationSeconds
+        
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -183,14 +184,7 @@ class PlayerDetailsView: UIView {
         setupAudioSession()
         setupGestures()
         observePlayerCurrentTime()
-        
-        let time = CMTimeMake(value: 1, timescale: 3)
-        let times = [NSValue(time: time)]
-        player.addBoundaryTimeObserver(forTimes: times, queue: .main) {
-            [weak self] in
-            print("Episode started playing")
-            self? .enlargeEpisodeImageView()
-        }
+        observeBoundaryTime()
     }
     
     @objc func handlePan(gesture: UIPanGestureRecognizer) {
