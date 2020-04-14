@@ -74,26 +74,26 @@ class PlayerDetailsView: UIView {
         let durationTime = self?.player.currentItem?.duration
         self?.durationLabel.text = durationTime?.toDisplayString()
             
-        self? .setupLockscreenCurrentTime()
+//        self? .setupLockscreenCurrentTime()
             
         self?.updateCurrentTimeSlider()
         }
     }
     
-    fileprivate func setupLockscreenCurrentTime() {
-        var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo
-        
-        // modify here
-        guard let currentItem = player.currentItem else { return }
-        let durationInSeconds = CMTimeGetSeconds(currentItem.duration)
-        
-        let elapsedTIme = CMTimeGetSeconds(player.currentTime())
-        
-        nowPlayingInfo? [MPNowPlayingInfoPropertyElapsedPlaybackTime] = elapsedTIme
-        nowPlayingInfo?[MPMediaItemPropertyPlaybackDuration] = durationInSeconds
-        
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
-    }
+//    fileprivate func setupLockscreenCurrentTime() {
+//        var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo
+//
+//        // modify here
+//        guard let currentItem = player.currentItem else { return }
+//        let durationInSeconds = CMTimeGetSeconds(currentItem.duration)
+//
+//        let elapsedTIme = CMTimeGetSeconds(player.currentTime())
+//
+//        nowPlayingInfo? [MPNowPlayingInfoPropertyElapsedPlaybackTime] = elapsedTIme
+//        nowPlayingInfo?[MPMediaItemPropertyPlaybackDuration] = durationInSeconds
+//
+//        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+//    }
     
     fileprivate func updateCurrentTimeSlider() {
         let currentTimeSeconds = CMTimeGetSeconds(player.currentTime())
