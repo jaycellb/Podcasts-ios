@@ -19,7 +19,6 @@ class PlayerDetailsView: UIView {
             authorLabel.text = episode.author
             
             setUpNowPlayingInfo()
-            
             playEpisode()
             
             guard let url = URL(string: episode.imageUrl ?? "") else { return }
@@ -28,19 +27,17 @@ class PlayerDetailsView: UIView {
             
             miniEpisodeImageView.sd_setImage(with: url) { (image, _, _, _) in
                 
-                guard let image = image else{ return }
-                
-                // lockscreen image setup code
-                var nowPlayngInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo
-                
+               let image = self.episodeImageView.image ?? UIImage()
+//                // lockscreen image setup code
+//                var nowPlayngInfo = MPNowPlayingInfoCenter.default().nowPlayingInf
                 // some modifications here
-                let artwork = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { (_) -> UIImage in
+                let artworkItem = MPMediaItemArtwork(boundsSize: .zero, requestHandler: { (size) -> UIImage in
                      return image
                 })
+                MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPMediaItemPropertyArtwork] = artworkItem
                 
-                nowPlayngInfo?[MPMediaItemPropertyArtwork] = artwork
-
-                MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayngInfo
+//                nowPlayngInfo?[MPMediaItemPropertyArtwork] = artwork
+//                MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayngInfo
             }
         }
     }
