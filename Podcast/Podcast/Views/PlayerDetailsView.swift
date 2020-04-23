@@ -157,6 +157,9 @@ class PlayerDetailsView: UIView {
     
     @objc fileprivate func handleNextTrack() {
         print("Play next episode... which is??")
+        playlistEpisodes.forEach({print($0.title)})
+        
+        
     }
     
     fileprivate func setupElapsedTime() {
