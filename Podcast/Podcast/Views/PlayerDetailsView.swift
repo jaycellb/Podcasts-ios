@@ -153,6 +153,8 @@ class PlayerDetailsView: UIView {
         commandCenter.nextTrackCommand.addTarget(self, action: #selector(handleNextTrack))
     }
     
+    var playlistEpisodes = [Episode]()
+    
     @objc fileprivate func handleNextTrack() {
         print("Play next episode... which is??")
     }
