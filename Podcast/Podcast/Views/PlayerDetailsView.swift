@@ -123,7 +123,7 @@ class PlayerDetailsView: UIView {
         
     }
     
-    fileprivate func setupRemoteCOntrol() {
+    fileprivate func setupRemoteControl() {
         UIApplication.shared.beginReceivingRemoteControlEvents()
         let commandCenter = MPRemoteCommandCenter.shared()
         commandCenter.playCommand.isEnabled = true
@@ -177,7 +177,7 @@ class PlayerDetailsView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setupRemoteCOntrol()
+        setupRemoteControl()
         setupAudioSession()
         setupGestures()
         observePlayerCurrentTime()
