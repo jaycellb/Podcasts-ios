@@ -149,6 +149,12 @@ class PlayerDetailsView: UIView {
             self.handlePlayPause()
             return .success
         }
+        
+        commandCenter.nextTrackCommand.addTarget(self, action: #selector(handleNextTrack))
+    }
+    
+    @objc fileprivate func handleNextTrack() {
+        print("Play next episode... which is??")
     }
     
     fileprivate func setupElapsedTime() {
