@@ -167,9 +167,15 @@ class PlayerDetailsView: UIView {
             return self.episode.title == ep.title && self.episode.author ==  ep.author
         }
         
-        // 11:53 on the episode
         guard let index = currentEpisodeIndex else { return }
-        let nextEpisode = playlistEpisodes[index + 1]
+        
+        let nextEpisode: Episode
+        if index == playlistEpisodes.count - 1 {
+            nextEpisode = playlistEpisodes[0]
+        } else {
+            nextEpisode = playlistEpisodes[index + 1]
+        }
+        
         self.episode = nextEpisode
     }
     
