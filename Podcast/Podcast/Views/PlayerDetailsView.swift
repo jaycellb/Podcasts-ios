@@ -159,7 +159,18 @@ class PlayerDetailsView: UIView {
         print("Play next episode... which is??")
         playlistEpisodes.forEach({print($0.title)})
         
+        if playlistEpisodes.count == 0 {
+            return
+        }
         
+        let currentEpisodeIndex = playlistEpisodes.firstIndex { (ep) -> Bool in
+            return self.episode.title == ep.title && self.episode.author ==  ep.author
+        }
+        
+        // 11:53 on the episode
+        guard let index = currentEpisodeIndex else { return }
+        let nextEpisode = playlistEpisodes[index + 1]
+        self.episode = nextEpisode
     }
     
     fileprivate func setupElapsedTime() {
