@@ -151,9 +151,29 @@ class PlayerDetailsView: UIView {
         }
         
         commandCenter.nextTrackCommand.addTarget(self, action: #selector(handleNextTrack))
+        commandCenter.previousTrackCommand.addTarget(self, action: #selector(handlePrevTrack))
     }
     
     var playlistEpisodes = [Episode]()
+    
+    @objc fileprivate func handlePrevTrack() {
+        if playlistEpisodes.count == 0 {
+            return
+        }
+        
+        let currentEpisodeIndex = playlistEpisodes.firstIndex { (ep) -> Bool in
+            return self.episode.title == ep.title && self.episode.author == ep.author
+        }
+        
+        guard let index = currentEpisodeIndex else { return }
+        let prevEpisode: Episode
+        if index == 0 {
+            prevEpisode = playlistEpisodes[playlistEpisodes.count - 1]
+        } else {
+            prevEpisode = playlistEpisodes[index - 1]
+        }
+        self.episode = prevEpisode
+    }
     
     @objc fileprivate func handleNextTrack() {
         print("Play next episode... which is??")
