@@ -168,7 +168,8 @@ class PlayerDetailsView: UIView {
         guard let index = currentEpisodeIndex else { return }
         let prevEpisode: Episode
         if index == 0 {
-            prevEpisode = playlistEpisodes[playlistEpisodes.count - 1]
+            let count = playlistEpisodes.count
+            prevEpisode = playlistEpisodes[count - 1]
         } else {
             prevEpisode = playlistEpisodes[index - 1]
         }
