@@ -229,6 +229,19 @@ class PlayerDetailsView: UIView {
     
     @objc fileprivate func handleInterruption(notification: Notification) {
         print("Interruption Observed...")
+        
+        guard let userInfo = notification.userInfo else { return }
+        guard let type =  userInfo[AVAudioSessionInterruptionTypeKey] as? UInt else { return }
+        
+        if type == AVAudioSession.InterruptionType.began.rawValue {
+            print("Interruption Began")
+
+        } else {
+            print("Interruption Ended")
+        }
+        
+        
+        
     }
     
     override func awakeFromNib() {
