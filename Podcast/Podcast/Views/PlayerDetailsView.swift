@@ -223,12 +223,21 @@ class PlayerDetailsView: UIView {
         
     }
     
+    fileprivate func setupInterruptionObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleInterruption), name: .AVCaptureSessionInterruptionEnded, object: nil)
+    }
+    
+    @objc fileprivate func handleInterruption(notification: Notification) {
+        print("Interruption Observed...")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setupRemoteControl()
         setupAudioSession()
         setupGestures()
+        setupInterruptionObserver()
         observePlayerCurrentTime()
         observeBoundaryTime()
     }
