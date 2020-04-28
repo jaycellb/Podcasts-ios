@@ -397,11 +397,13 @@ class PlayerDetailsView: UIView {
             miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             player.play()
             enlargeEpisodeImageView()
+            self.setupElapsedTime(playbackRate: 1) 
         } else {
             playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             player.pause()
             shrinkEpisodeImageView()
+            self.setupElapsedTime(playbackRate: 0)
         }
     }
     
