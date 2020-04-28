@@ -19,6 +19,8 @@ class PlayerDetailsView: UIView {
             authorLabel.text = episode.author
             
             setUpNowPlayingInfo()
+            
+            setupAudioSession()
             playEpisode()
             
             guard let url = URL(string: episode.imageUrl ?? "") else { return }
@@ -239,6 +241,7 @@ class PlayerDetailsView: UIView {
             miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
         } else {
             print("Interruption Ended")
+            
             player.play()
             playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
@@ -250,7 +253,6 @@ class PlayerDetailsView: UIView {
         super.awakeFromNib()
         
         setupRemoteControl()
-        setupAudioSession()
         setupGestures()
         setupInterruptionObserver()
         observePlayerCurrentTime()
