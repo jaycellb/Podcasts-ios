@@ -235,12 +235,14 @@ class PlayerDetailsView: UIView {
         
         if type == AVAudioSession.InterruptionType.began.rawValue {
             print("Interruption Began")
-
+            playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+            miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
         } else {
             print("Interruption Ended")
+            player.play()
+            playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
         }
-        
-        
         
     }
     
