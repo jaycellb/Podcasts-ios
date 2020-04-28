@@ -133,11 +133,8 @@ class PlayerDetailsView: UIView {
             self.player.play()
             self.playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             self.miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
-            self.setupElapsedTime()
-            
-            MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPNowPlayingInfoPropertyPlaybackRate] = 1
-            
-            return .success
+            self.setupElapsedTime(playbackRate: 1)
+             return .success
         }
         
         commandCenter.pauseCommand.isEnabled = true
@@ -145,10 +142,7 @@ class PlayerDetailsView: UIView {
             self.player.pause()
             self.playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             self.miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
-            self.setupElapsedTime()
-            
-            MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPNowPlayingInfoPropertyPlaybackRate] = 0
-            
+            self.setupElapsedTime(playbackRate: 0)
             return .success
         }
         
@@ -208,9 +202,12 @@ class PlayerDetailsView: UIView {
         self.episode = nextEpisode
     }
     
-    fileprivate func setupElapsedTime() {
+    fileprivate func setupElapsedTime(playbackRate: Float) {
         let elapsedTime = CMTimeGetSeconds(player.currentTime())
         MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = elapsedTime
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPNowPlayingInfoPropertyPlaybackRate] = playbackRate
+
     }
     
     fileprivate func observeBoundaryTime() {
