@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D136E73EAC5DCA5C69F0A5E /* Pods_Podcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B0BAB10C72DAC2A9E10DF2 /* Pods_Podcast.framework */; };
 		FC0A2142231D694000ECCA3E /* EpisodesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0A2141231D694000ECCA3E /* EpisodesController.swift */; };
+		FC13C19E2459BDAD00CA2ABB /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC13C19D2459BDAD00CA2ABB /* FavoritesController.swift */; };
 		FC2D32A92301B45F00C415D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2D32A82301B45F00C415D9 /* AppDelegate.swift */; };
 		FC2D32AB2301B45F00C415D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2D32AA2301B45F00C415D9 /* ViewController.swift */; };
 		FC2D32AE2301B45F00C415D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2D32AC2301B45F00C415D9 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		48B0BAB10C72DAC2A9E10DF2 /* Pods_Podcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Podcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6EE334FA2ECF319C14CD4F2 /* Pods-Podcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podcast.debug.xcconfig"; path = "Target Support Files/Pods-Podcast/Pods-Podcast.debug.xcconfig"; sourceTree = "<group>"; };
 		FC0A2141231D694000ECCA3E /* EpisodesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesController.swift; sourceTree = "<group>"; };
+		FC13C19D2459BDAD00CA2ABB /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		FC2D32A52301B45F00C415D9 /*  .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = " .app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2D32A82301B45F00C415D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC2D32AA2301B45F00C415D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				FC6C851D230869CE00444565 /* PodcastsSearchController.swift */,
 				FC0A2141231D694000ECCA3E /* EpisodesController.swift */,
+				FC13C19D2459BDAD00CA2ABB /* FavoritesController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				FC0A2142231D694000ECCA3E /* EpisodesController.swift in Sources */,
 				FC2D32BB2301BC1600C415D9 /* MainTabBarController.swift in Sources */,
 				FC46D62D2322CE5200173BBD /* EpisodeCell.swift in Sources */,
+				FC13C19E2459BDAD00CA2ABB /* FavoritesController.swift in Sources */,
 				FCC1E2C32312FDAD008F4622 /* APIService.swift in Sources */,
 				FC6C85212308707A00444565 /* Podcast.swift in Sources */,
 				FC46D6262322CBB300173BBD /* Episode.swift in Sources */,

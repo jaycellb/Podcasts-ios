@@ -13,11 +13,8 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         
         UINavigationBar.appearance().prefersLargeTitles = true
-        
         tabBar.tintColor = .purple
-        
         setupViewControllers()
-        
         setUpPlayerDetailsView()
         
     }
@@ -30,9 +27,7 @@ class MainTabBarController: UITabBarController {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             
             self.view.layoutIfNeeded()
-            
             self.tabBar.transform = .identity
-            
             self.playerDetailsView.maximizedStackView.alpha = 0
             self.playerDetailsView.miniPlayerView.alpha = 1
         })
@@ -42,8 +37,7 @@ class MainTabBarController: UITabBarController {
         minimizedTopAnchorConstraint.isActive = false
         maximizedTopAnchorConstraint.isActive = true
         maximizedTopAnchorConstraint.constant = 0
-        
-        
+
         bottomAnchorConstraint.constant = 0
         
         if episode != nil{
@@ -100,8 +94,8 @@ class MainTabBarController: UITabBarController {
     }
     func setupViewControllers() {
         viewControllers = [
-            generateNavigationController(for: PodcastsSearchController(), title: "Search", image: #imageLiteral(resourceName: "search")),
             generateNavigationController(for: ViewController(), title: "Favorites", image: #imageLiteral(resourceName: "favorites")),
+            generateNavigationController(for: PodcastsSearchController(), title: "Search", image: #imageLiteral(resourceName: "search")),
             generateNavigationController(for: ViewController(), title: "Downloads", image: #imageLiteral(resourceName: "downloads"))
         ]
     }
