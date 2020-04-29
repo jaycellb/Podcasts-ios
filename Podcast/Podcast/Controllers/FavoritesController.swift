@@ -42,4 +42,7 @@ class FavoritesController: UICollectionViewController, UICollectionViewDelegateF
         return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
 }
