@@ -12,7 +12,6 @@ import Alamofire
 class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     
     var podcasts = [Podcast]()
-    
     let cellId = "cellId"
      
     //implement a UISearchController
