@@ -20,8 +20,8 @@ class FavoritesController: UICollectionViewController, UICollectionViewDelegateF
     }
     
     fileprivate func setupCollectionView() {
-        collectionView?.backgroundColor = .blue
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.backgroundColor = .white
+        collectionView?.register(FavoritePodcastCell.self, forCellWithReuseIdentifier: cellId)
     }
     
     //MARK:- UICollectionView Delegate / Spacing Methods
@@ -32,7 +32,7 @@ class FavoritesController: UICollectionViewController, UICollectionViewDelegateF
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .red
+
         return cell
     }
     
