@@ -14,18 +14,18 @@ import UIKit
     let nameLabel = UILabel()
     let artistNameLabel = UILabel()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    fileprivate func stylizedUI() {
         nameLabel.text = "Podcast Name"
-        nameLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        nameLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         artistNameLabel.text = "Artist Name"
-        artistNameLabel.font = UIFont.systemFont(ofSize: 13)
+        artistNameLabel.font = UIFont.systemFont(ofSize: 14)
         artistNameLabel.textColor = .lightGray
+    }
+    
+    fileprivate func setupViews() {
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
-        
         let stackview = UIStackView(arrangedSubviews: [imageView, nameLabel, artistNameLabel])
-        
+
         stackview.axis = .vertical
         // enables auto layout
         stackview.translatesAutoresizingMaskIntoConstraints = false
@@ -36,6 +36,13 @@ import UIKit
         stackview.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         stackview.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         stackview.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        stylizedUI()
+        setupViews()
         
     }
     
