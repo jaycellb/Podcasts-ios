@@ -52,9 +52,7 @@ class EpisodesController: UITableViewController {
     
     @objc fileprivate func handleFetchSavedPodcasts() {
         print("Fetching saved Podcasts from UserDefaults")
-        
         let value =  UserDefaults.standard.value(forKey: favoritedPodcastKey) as? String
-        
         print(value ?? "" )
         
         // How to retrieve our Podcast object from our UserDefaults.
@@ -74,7 +72,6 @@ class EpisodesController: UITableViewController {
 //        UserDefaults.standard.set(podcast.trackName, forKey: favoritedPodcastKey)
         //1. Transform Podcast into data
         let data = NSKeyedArchiver.archivedData(withRootObject: podcast)
-        
         UserDefaults.standard.set(data, forKey: favoritedPodcastKey)
         
     }
