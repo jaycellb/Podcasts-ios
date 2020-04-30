@@ -38,9 +38,20 @@ class EpisodesController: UITableViewController {
     override func viewDidLoad() {
         super .viewDidLoad()
         setupTableView()
+        setupNavigationBarButtons()
     }
     
     //MARK:- Setup TableView
+    
+    fileprivate func setupNavigationBarButtons() {
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(handleSaveFavorite))
+        ]
+    }
+    
+    @objc fileprivate func handleSaveFavorite() {
+        
+    }
     
     fileprivate func setupTableView() {
         let nib = UINib(nibName: "EpisodeCell", bundle: nil)
