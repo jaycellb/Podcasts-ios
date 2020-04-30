@@ -18,6 +18,9 @@ class Podcast: NSObject, Decodable, NSCoding {
     
     required init?(coder aDecoder: NSCoder) {
         print("Trying to tranform Data into Podcast")
+        self.trackName = aDecoder.decodeObject(forKey: "trackNameKey") as? String
+        self.artistName = aDecoder.decodeObject(forKey: "artistNameKey") as? String
+        self.artworkUrl600 = aDecoder.decodeObject(forKey: "artworkNameKey") as? String
     }
     
     var trackName: String?
