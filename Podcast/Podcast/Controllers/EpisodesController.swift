@@ -45,12 +45,17 @@ class EpisodesController: UITableViewController {
     
     fileprivate func setupNavigationBarButtons() {
         navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(handleSaveFavorite))
+            UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(handleSaveFavorite)),
+            UIBarButtonItem(title: "Fetch", style: .plain, target: self, action: #selector(handleFetchSavedPodcasts))
         ]
     }
     
+    @objc fileprivate func handleFetchSavedPodcasts() {
+        print("Fetching saved Podcasts from UserDefaults")
+    }
+    
     @objc fileprivate func handleSaveFavorite() {
-        
+        print("Saving info into UserDefaults")
     }
     
     fileprivate func setupTableView() {
