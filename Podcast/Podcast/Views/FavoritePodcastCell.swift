@@ -16,10 +16,12 @@ import UIKit
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .yellow
         
         nameLabel.text = "Podcast Name"
+        nameLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         artistNameLabel.text = "Artist Name"
+        artistNameLabel.font = UIFont.systemFont(ofSize: 13)
+        artistNameLabel.textColor = .lightGray
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
         
         let stackview = UIStackView(arrangedSubviews: [imageView, nameLabel, artistNameLabel])
