@@ -16,8 +16,23 @@ import UIKit
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         backgroundColor = .yellow
+        
+        nameLabel.text = "Podcast Name"
+        artistNameLabel.text = "Artist Name"
+        
+        let stackview = UIStackView(arrangedSubviews: [nameLabel, artistNameLabel])
+        
+        stackview.axis = .vertical
+        // enables auto layout
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(stackview)
+        
+        stackview.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        stackview.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        stackview.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        stackview.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
     }
     
