@@ -57,6 +57,9 @@ class EpisodesController: UITableViewController {
         
         print(value ?? "" )
         
+        // How to retrieve our Podcast object from our UserDefaults.
+        
+        
     }
     
     let favoritedPodcastKey = "favoritedPodcastKey"
@@ -66,7 +69,12 @@ class EpisodesController: UITableViewController {
         
         guard let podcast = self.podcast else { return }
         
-        UserDefaults.standard.set(podcast.trackName, forKey: favoritedPodcastKey)
+//        UserDefaults.standard.set(podcast.trackName, forKey: favoritedPodcastKey)
+        //1. Transform Podcast into data
+        let data = NSKeyedArchiver.archivedData(withRootObject: podcast)
+        
+        UserDefaults.standard.set(data, forKey: favoritedPodcastKey)
+        
     }
     
     fileprivate func setupTableView() {
