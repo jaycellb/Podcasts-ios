@@ -21,7 +21,7 @@ import UIKit
         nameLabel.text = "Podcast Name"
         artistNameLabel.text = "Artist Name"
         
-        let stackview = UIStackView(arrangedSubviews: [nameLabel, artistNameLabel])
+        let stackview = UIStackView(arrangedSubviews: [imageView, nameLabel, artistNameLabel])
         
         stackview.axis = .vertical
         // enables auto layout
