@@ -52,6 +52,11 @@ class EpisodesController: UITableViewController {
     
     @objc fileprivate func handleFetchSavedPodcasts() {
         print("Fetching saved Podcasts from UserDefaults")
+        
+        let value =  UserDefaults.standard.value(forKey: favoritedPodcastKey) as? String
+        
+        print(value ?? "" )
+        
     }
     
     let favoritedPodcastKey = "favoritedPodcastKey"
