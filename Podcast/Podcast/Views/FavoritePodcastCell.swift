@@ -10,6 +10,10 @@ import UIKit
 
   class FavoritePodcastCell: UICollectionViewCell {
     
+    let imageView = UIImageView(image: #imageLiteral(resourceName: "appicon"))
+    let nameLabel = UILabel()
+    let artistNameLabel = UILabel()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
