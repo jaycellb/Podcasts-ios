@@ -20,6 +20,7 @@ import UIKit
         
         nameLabel.text = "Podcast Name"
         artistNameLabel.text = "Artist Name"
+        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
         
         let stackview = UIStackView(arrangedSubviews: [imageView, nameLabel, artistNameLabel])
         
