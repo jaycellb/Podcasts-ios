@@ -69,9 +69,10 @@ class EpisodesController: UITableViewController {
         
         guard let podcast = self.podcast else { return }
         
-//        UserDefaults.standard.set(podcast.trackName, forKey: favoritedPodcastKey)
         //1. Transform Podcast into data
-        let data = NSKeyedArchiver.archivedData(withRootObject: podcast)
+        var listOfPodcasts = [Podcast]()
+        listOfPodcasts.append(podcast)
+        let data = NSKeyedArchiver.archivedData(withRootObject: listOfPodcastscast)
         UserDefaults.standard.set(data, forKey: favoritedPodcastKey)
         
     }
