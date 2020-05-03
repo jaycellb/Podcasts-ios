@@ -70,8 +70,13 @@ class EpisodesController: UITableViewController {
         
         guard let podcast = self.podcast else { return }
         
+        // Fetched saved podcast
+        guard let savedPodcastsData = UserDefaults.standard.data(forKey: favoritedPodcastKey) else { return }
+        guard let savedPodcasts = NSKeyedUnarchiver.unarchiveObject(with: savedPodcastsData) as? [Podcast] else { return }
+        
+        
         //1. Transform Podcast into data
-        var listOfPodcasts = [Podcast]()
+        var listOfPodcasts = savedPodcasts 
         listOfPodcasts.append(podcast)
         let data = NSKeyedArchiver.archivedData(withRootObject: listOfPodcasts)
         UserDefaults.standard.set(data, forKey: favoritedPodcastKey)
