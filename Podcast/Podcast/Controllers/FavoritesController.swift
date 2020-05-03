@@ -12,6 +12,8 @@ class FavoritesController: UICollectionViewController, UICollectionViewDelegateF
     
     fileprivate let cellId = "cellId"
     
+    var podcasts = UserDefaults.standard.savedPodcasts()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +29,7 @@ class FavoritesController: UICollectionViewController, UICollectionViewDelegateF
     //MARK:- UICollectionView Delegate / Spacing Methods
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return podcasts.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
