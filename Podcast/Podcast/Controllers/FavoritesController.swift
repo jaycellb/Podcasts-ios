@@ -32,6 +32,24 @@ class FavoritesController: UICollectionViewController, UICollectionViewDelegateF
 
     @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
         print("Captured Long Press")
+        
+        let location = gesture.location(in: collectionView)
+        guard let selectedIndexPath = collectionView?.indexPathForItem(at: location) else { return }
+        
+        print(selectedIndexPath.item)
+        
+        let alertController = UIAlertController(title: "Remove Podcast?", message: nil, preferredStyle: .actionSheet)
+        
+        alertController.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
+            // Where the Podcast object is removed from the collection view
+            self.podcasts.remove(at: selectedIndexPath.item)
+            self.collectionView?.deleteItems(at: [selectedIndexPath])
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(alertController, animated: true)
+
     }
     
     //MARK:- UICollectionView Delegate / Spacing Methods
