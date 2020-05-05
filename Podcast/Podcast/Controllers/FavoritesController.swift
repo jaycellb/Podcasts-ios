@@ -65,6 +65,13 @@ class FavoritesController: UICollectionViewController, UICollectionViewDelegateF
     
     //MARK:- UICollectionView Delegate / Spacing Methods
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let episodeController = EpisodesController()
+        episodeController.podcast = self.podcasts[indexPath.item]
+        
+        navigationController?.pushViewController(episodeController, animated: true)
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return podcasts.count
     }
