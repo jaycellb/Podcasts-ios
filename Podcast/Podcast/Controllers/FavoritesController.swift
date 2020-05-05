@@ -41,9 +41,13 @@ class FavoritesController: UICollectionViewController, UICollectionViewDelegateF
         let alertController = UIAlertController(title: "Remove Podcast?", message: nil, preferredStyle: .actionSheet)
         
         alertController.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
+           let selectedPodcast = self.podcasts[selectedIndexPath.item]
             // Where the Podcast object is removed from the collection view
             self.podcasts.remove(at: selectedIndexPath.item)
             self.collectionView?.deleteItems(at: [selectedIndexPath])
+            // also remove your favorited podcast from UserDefaults
+            // The simulator doesn't delete immediately, test with your physical iPhone devices
+            UserDefaults.standard.deletePodcast(podcast: selectedPodcast)
         }))
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
