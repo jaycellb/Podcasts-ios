@@ -78,14 +78,19 @@ class EpisodesController: UITableViewController {
         
         guard let podcast = self.podcast else { return }
         
-        // Fetched saved podcast
  
         //1. Transform Podcast into data
         var listOfPodcasts = UserDefaults.standard.savedPodcasts()
         listOfPodcasts.append(podcast)
         let data = NSKeyedArchiver.archivedData(withRootObject: listOfPodcasts)
+        
         UserDefaults.standard.set(data, forKey: UserDefaults.favoritedPodcastKey)
         
+        showBadgeHighlight()
+    }
+    
+    fileprivate func showBadgeHighlight() {
+        UIApplication.mainTabBarController()?.viewControllers?[1].tabBarItem.badgeValue = "New"
     }
     
     fileprivate func setupTableView() {
