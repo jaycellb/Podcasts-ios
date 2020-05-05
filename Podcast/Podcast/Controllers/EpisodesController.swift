@@ -54,7 +54,7 @@ class EpisodesController: UITableViewController {
         } else {
             navigationItem.rightBarButtonItems = [
                 UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(handleSaveFavorite)),
-                UIBarButtonItem(title: "Fetch", style: .plain, target: self, action: #selector(handleFetchSavedPodcasts))
+//                UIBarButtonItem(title: "Fetch", style: .plain, target: self, action: #selector(handleFetchSavedPodcasts))
             ]
         }
         
@@ -78,7 +78,6 @@ class EpisodesController: UITableViewController {
         
         guard let podcast = self.podcast else { return }
         
- 
         //1. Transform Podcast into data
         var listOfPodcasts = UserDefaults.standard.savedPodcasts()
         listOfPodcasts.append(podcast)
@@ -87,6 +86,9 @@ class EpisodesController: UITableViewController {
         UserDefaults.standard.set(data, forKey: UserDefaults.favoritedPodcastKey)
         
         showBadgeHighlight()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "heart"), style: .plain, target: nil, action: nil)
+        
     }
     
     fileprivate func showBadgeHighlight() {
