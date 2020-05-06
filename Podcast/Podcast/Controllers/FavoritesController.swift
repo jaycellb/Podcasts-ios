@@ -21,6 +21,13 @@ class FavoritesController: UICollectionViewController, UICollectionViewDelegateF
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        podcasts = UserDefaults.standard.savedPodcasts()
+        collectionView.reloadData()
+        UIApplication.mainTabBarController()?.viewControllers?[1].tabBarItem.badgeValue = nil
+    }
+    
     fileprivate func setupCollectionView() {
         collectionView?.backgroundColor = .white
         collectionView?.register(FavoritePodcastCell.self, forCellWithReuseIdentifier: cellId)
@@ -41,9 +48,13 @@ class FavoritesController: UICollectionViewController, UICollectionViewDelegateF
         let alertController = UIAlertController(title: "Remove Podcast?", message: nil, preferredStyle: .actionSheet)
         
         alertController.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
+           let selectedPodcast = self.podcasts[selectedIndexPath.item]
             // Where the Podcast object is removed from the collection view
             self.podcasts.remove(at: selectedIndexPath.item)
             self.collectionView?.deleteItems(at: [selectedIndexPath])
+            // also remove your favorited podcast from UserDefaults
+            // The simulator doesn't delete immediately, test with your physical iPhone devices
+            UserDefaults.standard.deletePodcast(podcast: selectedPodcast)
         }))
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -53,6 +64,13 @@ class FavoritesController: UICollectionViewController, UICollectionViewDelegateF
     }
     
     //MARK:- UICollectionView Delegate / Spacing Methods
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let episodeController = EpisodesController()
+        episodeController.podcast = self.podcasts[indexPath.item]
+        
+        navigationController?.pushViewController(episodeController, animated: true)
+    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return podcasts.count
