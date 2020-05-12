@@ -103,6 +103,14 @@ class EpisodesController: UITableViewController {
     
     //MARK:- UITableView
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let downloadAction = UITableViewRowAction(style: .normal, title: "Download") { (_, _) in
+            print("Downloading episodes into UserDefaults")
+        }
+        
+        return[downloadAction]
+    }
+    
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicatorView.color =  .darkGray
