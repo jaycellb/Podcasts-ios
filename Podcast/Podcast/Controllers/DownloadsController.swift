@@ -21,6 +21,12 @@ class DownloadsController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        episodes = UserDefaults.standard.downloadedEpisodes()
+        tableView.reloadData()
+    }
+    
 //    MARK:- Setup
     
     fileprivate func setupTableView() {
