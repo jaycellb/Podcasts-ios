@@ -15,12 +15,27 @@ extension UserDefaults {
     
     func downloadEpisode(episode: Episode) {
         do {
-            let data = try JSONEncoder().encode(episode)
+            var downloadedEpisodes = [Episode]()
+            downloadedEpisodes.append(episode)
+            let data = try JSONEncoder().encode(downloadedEpisodes)
             UserDefaults.standard.set(data, forKey: UserDefaults.downloadedEpisodesKey)
         } catch let encodeErr {
             print("Failed to encode Episode:", encodeErr)
         }
-        //        episode 12:17
+        
+    }
+    
+    func downloadedEpisodes() -> [Episode] {
+        guard let episodesData = data(forKey: UserDefaults.downloadedEpisodesKey) else { return [] }
+        
+        do {
+            let episodes = try JSONDecoder().decode([Episode].self, from: episodesData)
+            return episodes
+        } catch let decodeErr {
+            print("Failed to decode:", decodeErr)
+        }
+        
+        return[]
     }
     
     func savedPodcasts() -> [Podcast] {
