@@ -15,9 +15,9 @@ extension UserDefaults {
     
     func downloadEpisode(episode: Episode) {
         do {
-            var downloadedEpisodes = [Episode]()
-            downloadedEpisodes.append(episode)
-            let data = try JSONEncoder().encode(downloadedEpisodes)
+            var episodes = downloadedEpisodes()
+            episodes.append(episode)
+            let data = try JSONEncoder().encode(episodes)
             UserDefaults.standard.set(data, forKey: UserDefaults.downloadedEpisodesKey)
         } catch let encodeErr {
             print("Failed to encode Episode:", encodeErr)
